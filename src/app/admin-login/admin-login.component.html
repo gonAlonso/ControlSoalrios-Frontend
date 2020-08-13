@@ -1,0 +1,12 @@
+<h3>Admin Login</h3>
+
+<form [formGroup]="form" (submit)="onSubmit(form.value)">
+  <label for="email">eMail</label>
+  <input type="email" name="email" placeholder="Email" formControlName="email"/>
+  <br/>
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="Password" formControlName="password"/>
+  <br/>
+  <input type="submit" value="Enviar" [disabled]="form.invalid" />
+</form>
+
