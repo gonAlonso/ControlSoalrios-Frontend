@@ -12,4 +12,7 @@ export class AdminEmpresaComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(){}
+  eliminaEmpresa(){}
+
 }

@@ -16,7 +16,7 @@ export class EditEmpresaComponent implements OnInit {
   public form: FormGroup;
 
   @Input() empresa: Empresa;
-  @Output() outReloadEmpresa = new EventEmitter<string>();
+  @Output() outReload = new EventEmitter<string>();
   constructor(private empresaSrv: EmpresasService, public formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class EditEmpresaComponent implements OnInit {
     });
   }
 
-  reloadEmpresa() { this.outReloadEmpresa.emit('reloadEmpresa'); }
+  reloadEmpresa() { this.outReload.emit('reloadEmpresa'); }
 
 
   updateEmpresa(form: FormGroup) {

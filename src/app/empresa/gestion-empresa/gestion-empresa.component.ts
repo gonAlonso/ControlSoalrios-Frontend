@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EventEmitter } from '@angular/core';
 import { Empresa } from 'src/app/models/empresa';
 import { AuthService } from 'src/app/services/auth.service';
 import { EmpresasService } from 'src/app/services/empresas.service';
@@ -31,7 +30,6 @@ export class GestionEmpresaComponent implements OnInit {
     this.empSrv.getDataEmpresa().subscribe(
       data => {
         this.empresa = data.datos;
-        console.log( this.empresa );
       },
       error => {}
     );

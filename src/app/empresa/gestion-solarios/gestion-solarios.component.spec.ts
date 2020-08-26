@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditSolariosComponent } from './edit-solarios.component';
+import { GestionSolariosComponent } from './gestion-solarios.component';
 
-describe('EditSolariosComponent', () => {
-  let component: EditSolariosComponent;
-  let fixture: ComponentFixture<EditSolariosComponent>;
+describe('GestionSolariosComponent', () => {
+  let component: GestionSolariosComponent;
+  let fixture: ComponentFixture<GestionSolariosComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditSolariosComponent ]
+      declarations: [ GestionSolariosComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditSolariosComponent);
+    fixture = TestBed.createComponent(GestionSolariosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

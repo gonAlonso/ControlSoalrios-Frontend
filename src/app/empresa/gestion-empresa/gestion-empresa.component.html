@@ -12,12 +12,14 @@
     </ul>
   </nav>
 
-  <app-edit-solarios [listSolarios]=(this.empresa.solarios) ></app-edit-solarios>
+  <app-gestion-solarios [inSolarios]=(this.empresa.solarios)
+    (outReload)="this.reloadEmpresa($event)"></app-gestion-solarios>
 
   <app-gestion-operarios [inOperarios]=(this.empresa.operarios)
   (outReload)="this.reloadEmpresa($event)"></app-gestion-operarios>
 
-  <app-edit-empresa [empresa]="this.empresa" (outReloadEmpresa)="this.reloadEmpresa($event)"></app-edit-empresa>
+  <app-edit-empresa [empresa]="this.empresa"
+    (outReload)="this.reloadEmpresa($event)"></app-edit-empresa>
 
   <div>
     <h4>Histórico de estados</h4>

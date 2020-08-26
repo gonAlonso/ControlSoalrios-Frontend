@@ -17,7 +17,7 @@
     <button (click)="onSubmit(form)">Guardar Cambios</button>
     <button (click)="eliminaEmpresa()">Eliminar Empresa</button>
     <br/>
-    <app-edit-solarios [listSolarios]=(this.empresa.solarios)></app-edit-solarios>
+    <app-gestion-solarios [inSolarios]=(this.empresa.solarios)></app-gestion-solarios>
     <div>Operarios</div>
     <div>Histórico de estados</div>
   </form>

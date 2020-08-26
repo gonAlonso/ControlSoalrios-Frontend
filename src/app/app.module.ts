@@ -14,10 +14,10 @@ import { ListaEmpresasComponent } from './admin/lista-empresas/lista-empresas.co
 import { GestionEmpresaComponent } from './empresa/gestion-empresa/gestion-empresa.component';
 import { GestionUsuarioComponent } from './gestion-usuario/gestion-usuario.component';
 import { EditEmpresaComponent } from './empresa/edit-empresa/edit-empresa.component';
-import { EditSolariosComponent } from './empresa/edit-solarios/edit-solarios.component';
 import { AdminEmpresaComponent } from './admin/admin-empresa/admin-empresa.component';
 import { LoginComponent } from './login/login.component';
 import { GestionOperariosComponent } from './empresa/gestion-operarios/gestion-operarios.component';
+import { GestionSolariosComponent } from './empresa/gestion-solarios/gestion-solarios.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +29,10 @@ import { GestionOperariosComponent } from './empresa/gestion-operarios/gestion-o
     GestionEmpresaComponent,
     GestionUsuarioComponent,
     EditEmpresaComponent,
-    EditSolariosComponent,
     AdminEmpresaComponent,
     LoginComponent,
-    GestionOperariosComponent
+    GestionOperariosComponent,
+    GestionSolariosComponent
   ],
   imports: [
     BrowserModule,
