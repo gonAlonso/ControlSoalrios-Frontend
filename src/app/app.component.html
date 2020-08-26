@@ -1,7 +1,10 @@
 <h1>{{title}}</h1>
 <nav>
   <ul>
+    <li><a [routerLink]="['/']" routerLinkActive="router-link-active" >Inicio</a></li>
     <li><a [routerLink]="['/admin-login']" routerLinkActive="router-link-active" >Admin login</a></li>
+    <li><a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></li>
+    <li *ngIf="this.authService.getUser()"><button (click)="this.logout()">Logout</button></li>
   </ul>
 </nav>
 

@@ -1,0 +1,29 @@
+<div *ngIf="this.empresa == undefined; else empresa_loaded">
+  <h4>Error al cargar los datos de la empresa</h4>
+</div>
+
+
+<ng-template #empresa_loaded>
+
+  <h4>Panel de Empresa <span>{{this.empresa.nombre}}</span></h4>
+  <nav>
+    <ul>
+      <li><a href="#" [routerLink]="">Editar Empresa</a></li>
+    </ul>
+  </nav>
+
+  <app-edit-solarios [listSolarios]=(this.empresa.solarios) ></app-edit-solarios>
+
+  <app-gestion-operarios [inOperarios]=(this.empresa.operarios)
+  (outReload)="this.reloadEmpresa($event)"></app-gestion-operarios>
+
+  <app-edit-empresa [empresa]="this.empresa" (outReloadEmpresa)="this.reloadEmpresa($event)"></app-edit-empresa>
+
+  <div>
+    <h4>Histórico de estados</h4>
+    <ul>
+      <li *ngFor="let item of this.empresa.historicoEstados">item</li>
+    </ul>
+  </div>
+
+</ng-template>

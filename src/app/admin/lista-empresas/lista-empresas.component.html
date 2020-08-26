@@ -1,0 +1,25 @@
+<h4>Lista empresas</h4>
+<div>
+  <input type="text" #searchinput placeholder="Nombre / CIF empresa" />
+  <button (click)="updateSearch(searchinput.value)">Buscar</button>
+</div>
+<div *ngIf="this.empresasMostrar == null; else listaOK">
+  <span>Empty list</span>
+</div>
+<ng-template #listaOK>
+  <div *ngFor="let j of this.empresasMostrar">
+    <span>
+      {{j.nombreFiscal}}
+    </span>
+    <span>
+      {{j.cif}}
+    </span>
+
+    <button (click)="this.sendCif(j.cif)">Load</button>
+    <!-- <a href='#' (click)="borrarPuntuacion(j._id)">Borrar</a>
+      &nbsp;
+      <a href='#' [routerLink]="['/editarJugador/', j._id]" >Editar</a>
+      &nbsp;
+      <app-gestion-puntuaciones [idUsuario]="j._id"></app-gestion-puntuaciones>-->
+    </div>
+  </ng-template>

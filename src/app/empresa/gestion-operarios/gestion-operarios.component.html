@@ -1,0 +1,16 @@
+<h4 *ngIf="this.inOperarios==undefined; else operariosOK">Error al cargar la lista de operarios</h4>
+
+<ng-template #operariosOK>
+  <h4>Lista operarios</h4>
+  <ul>
+    <li *ngFor="let item of this.inOperarios">{{item.nombre}}
+      <a href="#" (click)="eliminar($event,item._id)">Eliminar</a>
+    </li>
+  </ul>
+  <form #formOperario [formGroup]="form">
+    <label for="nombre">Nombre</label> <input type="text" placeholder="Nombre" name="nombre" formControlName='nombre'/>
+    <label for="dni">DNI</label> <input type="text" placeholder="DNI" name="dni" formControlName='dni'/>
+    <label for="pin">PIN</label> <input type="password" placeholder="PIN" name="pin" formControlName='pin' />
+    <button (click)="guardarOperario(form)">Guardar Operario</button>
+  </form>
+</ng-template>

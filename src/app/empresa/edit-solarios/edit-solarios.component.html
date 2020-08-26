@@ -1,0 +1,19 @@
+<div *ngIf="this.listSolarios == undefined; else emptyData">
+  <ul>
+    <li *ngFor="let item of this.listSolarios">
+      <span>Nombre <em>{{item.nombre}}</em> <button (click)="deleteSolario(item._id)">Eliminar</button></span>
+    </li>
+  </ul>
+</div>
+<ng-template #emptyData>
+  <span>No hay solarios configurados</span>
+</ng-template>
+
+<div>
+  <h5>Añadir solario</h5>
+  <form>
+    <input type="text" placeholder="Nombre" />
+    <input type="number" placeholder="Pontencia (J)" />
+    <button>Guardar Solario</button>
+  </form>
+</div>

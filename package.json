@@ -1,13 +1,9 @@
 {
-  "name": "fornt-end-gestion-solarios",
+  "name": "front-end-gestion-solarios",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "ng build"
   },
   "private": true,
   "dependencies": {

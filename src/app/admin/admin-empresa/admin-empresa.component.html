@@ -1,0 +1,27 @@
+<div *ngIf="this.empresa!==null; else emptydata">
+  <h3>Modificar datos de empresa</h3>
+  <form #formEmpresa="ngForm" [formGroup]="form">
+    <ul>
+      <li>CIF: <input type="text" formControlName="cif"/></li>
+      <li>Nombre: <input type="text" formControlName="name"/></li>
+      <li>Nombre Fiscal: <input type="text" formControlName="fiscalname"/></li>
+      <li>Direccion: <input type="text" formControlName="address" /></li>
+      <li>Tlf.: <input type="text" formControlName="telefone"/></li>
+      <li>Tipo de Bonos
+        <select formControlName="tipoBono">
+          <option value="MINUTOS">Minutos</option>
+          <option value="SESIONES">Sesiones</option>
+        </select>
+      </li>
+    </ul>
+    <button (click)="onSubmit(form)">Guardar Cambios</button>
+    <button (click)="eliminaEmpresa()">Eliminar Empresa</button>
+    <br/>
+    <app-edit-solarios [listSolarios]=(this.empresa.solarios)></app-edit-solarios>
+    <div>Operarios</div>
+    <div>Histórico de estados</div>
+  </form>
+</div>
+<ng-template #emptydata>
+  <span>No se encuentra la empresa</span>
+</ng-template>
