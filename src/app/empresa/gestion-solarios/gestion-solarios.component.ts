@@ -17,8 +17,6 @@ export class GestionSolariosComponent implements OnInit {
   @Input() inSolarios: Solario[];
   @Output() outReload = new EventEmitter<string>();
   constructor(private empSrv: EmpresasService,
-              private authService: AuthService,
-              private router: Router,
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {

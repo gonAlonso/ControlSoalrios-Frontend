@@ -1,1 +1,15 @@
-<p>lista-usuarios works!</p>
+<div *ngIf="this.listaUsuarios; else listaError">
+  <ul *ngIf="this.listaUsuarios.length!=0; else emptyList">
+    <li *ngFor="let item of this.listaUsuarios">
+      {{item.nombre}}
+      <a href="#" (click)="loadUser($event,item._id)">Cargar</a>
+    </li>
+  </ul>
+  <ng-template #emptyList>
+    <h3>Lista de usuarios vacía</h3>
+  </ng-template>
+</div>
+
+<ng-template #listaError>
+  <h3>No se puede cargar la lista de usuarios</h3>
+</ng-template>

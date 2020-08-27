@@ -6,11 +6,13 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { Operario } from '../models/operario';
 import { Solario } from '../models/solarios';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpresasService {
+
   private URL: string;
 
   constructor(
@@ -71,4 +73,35 @@ export class EmpresasService {
   deleteSolario(id: any): Observable<any> {
     return this.httpClient.delete( `${this.URL}/solario/${id}`, {headers: this.getHeaders() } );
   }
+
+  getListaUsuarios(): Observable<any> {
+    return this.httpClient.get( `${this.URL}/usuarios/`, {headers: this.getHeaders() } );
+  }
+
+  addUsuario(usuario: Usuario): Observable<any> {
+    let body;
+    try {
+      body = JSON.stringify(usuario);
+    } catch (e) {
+      console.log("Error parsing JSON of usuario");
+      return;
+    }
+    return this.httpClient.post(`${this.URL}/usuario`, body, { headers: this.getHeaders() } );
+  }
+
+  getUsuario(id: string): Observable<any> {
+    return this.httpClient.get( `${this.URL}/usuario/${id}`, {headers: this.getHeaders() } );
+  }
+
+  updateUsuario(id, usuario: Usuario): Observable<any> {
+    let body;
+    try {
+      body = JSON.stringify(usuario);
+    } catch (e) {
+      console.log("Error parsing JSON of usuario");
+      return;
+    }
+    return this.httpClient.put(`${this.URL}/usuario/${id}`, body, { headers: this.getHeaders() } );
+  }
+
 }

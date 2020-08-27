@@ -1,1 +1,11 @@
-<p>add-usuario works!</p>
+<div *ngIf="this.addUserForm">
+  <form [formGroup]="this.addUserForm">
+    <h4>Formulario de nuevo usuario</h4>
+    <label for="nombre">Nombre</label> <input type="text" placeholder="Nombre" name="nombre" [formControlName]="'nombre'"/>
+    <label for="dni">DNI</label> <input type="string" placeholder="DNI/NIE" name="DNI" formControlName='dni'/>
+    <label for="email">eMail</label> <input type="email" placeholder="eMail" name="email" formControlName='email'/>
+    <label for="tlf">Tlf</label> <input type="tel" placeholder="tlf" name="tlf" formControlName='tlf'/>
+    <label for="Fototipo">Fototipo</label> <input type="string" placeholder="fototipo" name="fototipo" formControlName='fototipo'/>
+    <button (click)="guardarUsuario(this.addUserForm)">Guardar Usuario</button>
+  </form>
+</div>

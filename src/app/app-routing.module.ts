@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { GestionEmpresaComponent } from './empresa/gestion-empresa/gestion-empresa.component';
-import { GestionUsuarioComponent } from './gestion-usuario/gestion-usuario.component';
 import { LoginComponent } from './login/login.component';
 import { EditEmpresaComponent } from './empresa/edit-empresa/edit-empresa.component';
+import { GestionUsuariosComponent } from './empresa/gestion-usuarios/gestion-usuarios.component';
+import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
+import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path: 'admin-panel', component: AdminPanelComponent},
   {path: 'empresa', component: GestionEmpresaComponent},
   {path: 'empresa/edit', component: EditEmpresaComponent},
-  {path: 'usuario', component: GestionUsuarioComponent},
+  {path: 'empresa/usuarios', component: GestionUsuariosComponent},
+  {path: 'empresa/add-usuario', component: AddUsuarioComponent},
+  {path: 'empresa/usuario/:id', component: GestionUsuarioEmpresaComponent},
 ];
 
 @NgModule({
