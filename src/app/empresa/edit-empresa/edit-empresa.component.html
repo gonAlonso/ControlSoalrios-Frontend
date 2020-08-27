@@ -1,12 +1,12 @@
 <div>
   <h3>Modificar datos de empresa</h3>
-  <form #formEmpresa="ngForm" [formGroup]="form">
+  <form *ngIf="this.editForm" [formGroup]="this.editForm">
     <ul>
-      <li>CIF: <input type="text" formControlName="cif"/></li>
-      <li>Nombre: <input type="text" formControlName="name"/></li>
-      <li>Nombre Fiscal: <input type="text" formControlName="fiscalname"/></li>
-      <li>Direccion: <input type="text" formControlName="address" /></li>
-      <li>Tlf.: <input type="text" formControlName="telefone"/></li>
+      <li>CIF: <input type="text" [formControlName]="'cif'"/></li>
+      <li>Nombre: <input type="text" [formControlName]="'name'"/></li>
+      <li>Nombre Fiscal: <input type="text" [formControlName]="'fiscalname'"/></li>
+      <li>Direccion: <input type="text" [formControlName]="'address'" /></li>
+      <li>Tlf.: <input type="text" [formControlName]="'telefone'"/></li>
       <li>Tipo de Bonos
         <select formControlName="tipoBono">
           <option value="MINUTOS">Minutos</option>
@@ -14,7 +14,7 @@
         </select>
       </li>
     </ul>
-    <button (click)="updateEmpresa(form)">Guardar Cambios</button>
+    <button (click)="updateEmpresa(editForm)">Guardar Cambios</button>
   </form>
 </div>
 

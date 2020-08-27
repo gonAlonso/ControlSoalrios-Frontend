@@ -12,7 +12,8 @@ export class AppComponent {
 
   constructor(public authService: AuthService, private router: Router) {}
 
-  logout() {
+  logout(e) {
+    e.preventDefault();
     this.authService.logout();
     this.router.navigateByUrl( this.router.createUrlTree( ['/login']));
   }

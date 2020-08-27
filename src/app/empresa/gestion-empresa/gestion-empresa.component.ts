@@ -13,6 +13,7 @@ export class GestionEmpresaComponent implements OnInit {
 
   cifEmpresa: string;
   public empresa: Empresa;
+  public error: string;
 
   constructor( private empSrv: EmpresasService,
                private authService: AuthService,
@@ -31,11 +32,10 @@ export class GestionEmpresaComponent implements OnInit {
       data => {
         this.empresa = data.datos;
       },
-      error => {}
+      error => {
+        this.error = error.statusText;
+        //this.router.navigateByUrl( this.router.createUrlTree( ['/login']));
+      }
     );
   }
-/*
-  notifyCif(cif) {
-    this.cifEmpresa = cif;
-  }*/
 }

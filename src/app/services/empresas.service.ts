@@ -12,35 +12,34 @@ import { Solario } from '../models/solarios';
 })
 export class EmpresasService {
   private URL: string;
-  private headers: HttpHeaders;
-  private token;
 
   constructor(
     private httpClient: HttpClient,
     private authSrv: AuthService) {
 
     this.URL = `${environment.url}empresa`;
+  }
+
+  getHeaders() {
     try {
-      this.token = this.authSrv.getUser().token;
+      return new HttpHeaders()
+      .set('Content-type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*')
+      .set('auth-token', this.authSrv.getUser().token);
     } catch (e) {
       console.log("Invalid Token");
     }
-
-    this.headers = new HttpHeaders()
-      .set('Content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
-      .set('auth-token', this.token);
   }
 
 
   public getDataEmpresa(): Observable<any> {
-    return this.httpClient.get( this.URL, {headers: this.headers } );
+    return this.httpClient.get( this.URL, {headers: this.getHeaders() } );
   }
 
 
   updateEmpresa(empresa: Empresa): Observable<any> {
     const body = JSON.stringify(empresa);
-    return this.httpClient.put( `${this.URL}/update`, body, { headers: this.headers } );
+    return this.httpClient.put( `${this.URL}/update`, body, { headers: this.getHeaders() } );
   }
 
   addOperario(operario: Operario) {
@@ -51,11 +50,11 @@ export class EmpresasService {
       console.log("Error parsing JSON of operario");
       return;
     }
-    return this.httpClient.post(`${this.URL}/operario`, body, { headers: this.headers } );
+    return this.httpClient.post(`${this.URL}/operario`, body, { headers: this.getHeaders() } );
   }
 
   deleteOperario(id: any) {
-    return this.httpClient.delete( `${this.URL}/operario/${id}`, {headers: this.headers } );
+    return this.httpClient.delete( `${this.URL}/operario/${id}`, {headers: this.getHeaders() } );
   }
 
   addSolario(solario: Solario): Observable<any> {
@@ -66,10 +65,10 @@ export class EmpresasService {
       console.log("Error parsing JSON of solario");
       return;
     }
-    return this.httpClient.post(`${this.URL}/solario`, body, { headers: this.headers } );
+    return this.httpClient.post(`${this.URL}/solario`, body, { headers: this.getHeaders() } );
   }
 
   deleteSolario(id: any): Observable<any> {
-    return this.httpClient.delete( `${this.URL}/solario/${id}`, {headers: this.headers } );
+    return this.httpClient.delete( `${this.URL}/solario/${id}`, {headers: this.getHeaders() } );
   }
 }

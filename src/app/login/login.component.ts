@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       result => {
         let dir;
         switch (result.type) {
-          case 'EMPRESA': dir = 'gestion-empresa'; break;
+          case 'EMPRESA': dir = 'empresa'; break;
           case 'GESTOR':
           case 'USUARIO':
           default: throw new Error('Route not implemented');
