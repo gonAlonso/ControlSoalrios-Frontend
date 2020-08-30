@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpresasService } from 'src/app/services/empresas.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -16,7 +16,8 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
 
   constructor(private empSrv: EmpresasService,
               private activatedRoute: ActivatedRoute,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit() {
     this.loadUser();
@@ -66,7 +67,15 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
   }
 
   eliminarUsuario() {
-    throw new Error("Method not implemented.");
+    if (!confirm("Está seguro/a de que desea eleminar el usuario/a para siempre?")) { return; }
+    this.empSrv.eliminarUsuaio(this.usuario._id).subscribe(
+      ok => {
+        this.router.navigateByUrl( this.router.createUrlTree( [`/empresa/`]));
+      },
+      ko => {
+        alert("No se ha podid eliminar el usuario");
+      }
+    )
   }
 
 }

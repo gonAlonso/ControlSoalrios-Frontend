@@ -1,6 +1,13 @@
-<div *ngIf="this.listaUsuarios; else listaError">
-  <ul *ngIf="this.listaUsuarios.length!=0; else emptyList">
-    <li *ngFor="let item of this.listaUsuarios">
+<div *ngIf="this.listaUsuariosActivos; else listaError">
+  <h2>TODO: Añadir buscador de usuario</h2>
+  <div>
+    <label>Buscar</label>
+    <input type="text" #searchText placeholder="Buscar por nombre, dni o email"/>
+    <button (click)="buscaUsuario(searchText.value)">Buscar</button>
+  </div>
+
+  <ul *ngIf="this.listaUsuariosActivos.length!=0; else emptyList">
+    <li *ngFor="let item of this.listaUsuariosActivos">
       {{item.nombre}}
       <a href="#" (click)="loadUser($event,item._id)">Cargar</a>
     </li>

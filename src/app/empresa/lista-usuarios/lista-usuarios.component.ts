@@ -11,14 +11,17 @@ import { Router } from '@angular/router';
 export class ListaUsuariosComponent implements OnInit {
   @Output() outUsuarioSlected = new EventEmitter<string>();
 
-  public listaUsuarios: Usuario[];
+  public listaUsuariosActivos: Usuario[];
+  public listaUsuariosEliminados: Usuario[];
+  private listaUsuariosRaw: Usuario[];
   constructor( private empSrv: EmpresasService,
                private router: Router) { }
 
   ngOnInit() {
     this.empSrv.getListaUsuarios().subscribe(
       data => {
-        this.listaUsuarios = data.datos;
+        this.listaUsuariosRaw = data.datos;
+        this.filtrarUsuarios(null);
       },
       error => {
         // Show error message
@@ -27,9 +30,33 @@ export class ListaUsuariosComponent implements OnInit {
     );
   }
 
+  filtrarUsuarios(filter: string) {
+    this.listaUsuariosActivos = [];
+    this.listaUsuariosEliminados = [];
+    this.listaUsuariosRaw.forEach( e => this.listaUsuariosActivos.push(e));
+
+    this.listaUsuariosEliminados = this.listaUsuariosRaw.filter(
+      element =>  element.estado != 'ELIMINADO');
+
+    this.listaUsuariosActivos = this.listaUsuariosRaw.filter(
+      element => {
+        if (element.estado != "ACTIVO" ) {  return false; }
+        else if (filter == undefined || filter == null) { return true; }
+        else if ( element.nombre.toLocaleUpperCase().includes(filter.toLocaleUpperCase()) ) { return true; }
+        else if ( element.dni.toLocaleUpperCase().includes(filter.toLocaleUpperCase()) ) { return true; }
+        else if ( element.email.toLocaleUpperCase().includes(filter.toLocaleUpperCase()) ) { return false; }
+        else return false;
+      }
+    );
+  }
+
   loadUser(e, id: string) {
     e.preventDefault();
     this.router.navigateByUrl( this.router.createUrlTree( [`/empresa/usuario/${id}`]));
+  }
+
+  buscaUsuario(texto) {
+    this.filtrarUsuarios(texto);
   }
 
 }

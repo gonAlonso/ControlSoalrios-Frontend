@@ -104,4 +104,7 @@ export class EmpresasService {
     return this.httpClient.put(`${this.URL}/usuario/${id}`, body, { headers: this.getHeaders() } );
   }
 
+  eliminarUsuaio(id: string): Observable<any> {
+    return this.httpClient.delete( `${this.URL}/usuario/${id}`, {headers: this.getHeaders() } );
+  }
 }
