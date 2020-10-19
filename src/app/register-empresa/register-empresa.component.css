@@ -1,0 +1,12 @@
+#register_empresa {
+
+}
+
+#register_empresa label, #register_empresa input {
+  display: block;
+}
+
+#register_empresa input {
+  display: block;
+  margin-bottom: 20px;
+}

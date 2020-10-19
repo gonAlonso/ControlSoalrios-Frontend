@@ -8,10 +8,12 @@ import { EditEmpresaComponent } from './empresa/edit-empresa/edit-empresa.compon
 import { GestionUsuariosComponent } from './empresa/gestion-usuarios/gestion-usuarios.component';
 import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
 import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
+import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
+  {path: 'register', component: RegisterEmpresaComponent},
   {path: 'admin-login', component: AdminLoginComponent },
   {path: 'admin-panel', component: AdminPanelComponent},
   {path: 'empresa', component: GestionEmpresaComponent},

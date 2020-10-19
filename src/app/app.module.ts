@@ -22,6 +22,7 @@ import { GestionUsuariosComponent } from './empresa/gestion-usuarios/gestion-usu
 import { ListaUsuariosComponent } from './empresa/lista-usuarios/lista-usuarios.component';
 import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
 import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
+import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empres
     GestionUsuariosComponent,
     ListaUsuariosComponent,
     AddUsuarioComponent,
-    GestionUsuarioEmpresaComponent
+    GestionUsuarioEmpresaComponent,
+    RegisterEmpresaComponent
   ],
   imports: [
     BrowserModule,
