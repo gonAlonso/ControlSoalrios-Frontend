@@ -10,6 +10,8 @@ import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empres
 import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HistoricoComponent } from './empresa/historico/historico.component';
+import { ListaUsuariosComponent } from './empresa/lista-usuarios/lista-usuarios.component';
 
 
 const routes: Routes = [
@@ -20,10 +22,10 @@ const routes: Routes = [
   {path: 'empresa', component: GestionEmpresaComponent, children:[
     {path: 'edit', component: EditEmpresaComponent, outlet: 'secondary'},
     {path: 'add-usuario', component: AddUsuarioComponent, outlet: 'secondary'},
+    {path: 'usuarios', component: GestionUsuariosComponent, outlet: 'secondary'},
     {path: 'usuario/:id', component: GestionUsuarioEmpresaComponent, outlet: 'secondary'},
+    {path: 'historico', component: HistoricoComponent, outlet: 'secondary'},
   ]},
-  {path: 'empresa/edit', component: EditEmpresaComponent},
-  {path: 'empresa/usuarios', component: GestionUsuariosComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 
