@@ -23,6 +23,8 @@ import { ListaUsuariosComponent } from './empresa/lista-usuarios/lista-usuarios.
 import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
 import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HistoricoComponent } from './empresa/historico/historico.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { RegisterEmpresaComponent } from './register-empresa/register-empresa.co
     ListaUsuariosComponent,
     AddUsuarioComponent,
     GestionUsuarioEmpresaComponent,
-    RegisterEmpresaComponent
+    RegisterEmpresaComponent,
+    PageNotFoundComponent,
+    HistoricoComponent
   ],
   imports: [
     BrowserModule,

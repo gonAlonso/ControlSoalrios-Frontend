@@ -9,6 +9,7 @@ import { GestionUsuariosComponent } from './empresa/gestion-usuarios/gestion-usu
 import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
 import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -16,11 +17,14 @@ const routes: Routes = [
   {path: 'register', component: RegisterEmpresaComponent},
   {path: 'admin-login', component: AdminLoginComponent },
   {path: 'admin-panel', component: AdminPanelComponent},
-  {path: 'empresa', component: GestionEmpresaComponent},
+  {path: 'empresa', component: GestionEmpresaComponent, children:[
+    {path: 'edit', component: EditEmpresaComponent, outlet: 'secondary'},
+    {path: 'add-usuario', component: AddUsuarioComponent, outlet: 'secondary'},
+    {path: 'usuario/:id', component: GestionUsuarioEmpresaComponent, outlet: 'secondary'},
+  ]},
   {path: 'empresa/edit', component: EditEmpresaComponent},
   {path: 'empresa/usuarios', component: GestionUsuariosComponent},
-  {path: 'empresa/add-usuario', component: AddUsuarioComponent},
-  {path: 'empresa/usuario/:id', component: GestionUsuarioEmpresaComponent},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({

@@ -10,27 +10,14 @@
 
   <nav>
     <ul>
-      <li><a href="#" [routerLink]="['edit']">Editar Empresa</a></li>
-      <li><a href="#" [routerLink]="['add-usuario']">Añadir usuario</a></li>
-      <li><a href="#" [routerLink]="['usuarios']">Lista usuarios</a></li>
-      <li><a href="#" [routerLink]="['add-sesion']">Nueva sesion</a></li>
-      <li><a href="#" [routerLink]="['add-bono']">Nuevo Bono</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['edit']}}]">Editar Empresa</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-usuario']}}]">Añadir usuario</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['usuarios']}}]">Lista usuarios</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-sesion']}}]">Nueva sesion</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-bono']}}]">Nuevo Bono</a></li>
     </ul>
   </nav>
 
-  <app-gestion-solarios [inSolarios]=(this.empresa.solarios)
-    (outReload)="this.reloadEmpresa($event)"></app-gestion-solarios>
-
-  <app-gestion-operarios [inOperarios]=(this.empresa.operarios)
-  (outReload)="this.reloadEmpresa($event)"></app-gestion-operarios>
-
-  <app-edit-empresa></app-edit-empresa>
-
-  <div>
-    <h4>Histórico de estados</h4>
-    <ul>
-      <li *ngFor="let item of this.empresa.historicoEstados">item</li>
-    </ul>
-  </div>
+  <router-outlet name="secondary"></router-outlet>
 
 </ng-template>
