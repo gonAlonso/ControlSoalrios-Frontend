@@ -4,26 +4,12 @@
 
 <h3>Añadir sesion de usuario</h3>
 
-<form *ngIf="this.editUserForm" [formGroup]="this.editUserForm">
-  <h4>Modificar datos de usuario</h4>
-  <label for="nombre">Nombre</label> <input type="text" placeholder="Nombre" name="nombre" formControlName="nombre"/>
-  <label for="dni">DNI</label> <input type="string" placeholder="DNI/NIE" name="DNI" formControlName='dni'/>
-  <label for="email">eMail</label> <input type="email" placeholder="eMail" name="email" formControlName='email'/>
-  <label for="tlf">Tlf</label> <input type="tel" placeholder="tlf" name="tlf" formControlName='tlf'/>
-  <label for="Fototipo">Fototipo</label>
-  <select formControlName="fototipo">
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
-    <option>D</option>
-    <option>E</option>
-    <option>F</option>
-  </select>
+<app-form-usuario
+  [selectedUser]="this.usuario"
+  (usuario)="guardarUsuario($event)">
+</app-form-usuario>
 
-  <label>Fecha de Registro</label> <span>{{this.usuario.fechaRegistro}}</span>
-  <button (click)="guardarUsuario(this.editUserForm)">Guardar Usuario</button>
-</form>
-
+<label>Fecha de Registro</label> <span *ngIf="this.usuario!=undefined">{{this.usuario.fechaRegistro}}</span>
 
 <div>
   <h3>Eliminar usuario</h3>

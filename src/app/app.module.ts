@@ -25,6 +25,7 @@ import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empres
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HistoricoComponent } from './empresa/historico/historico.component';
+import { FormUsuarioComponent } from './empresa/form-usuario/form-usuario.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { HistoricoComponent } from './empresa/historico/historico.component';
     GestionUsuarioEmpresaComponent,
     RegisterEmpresaComponent,
     PageNotFoundComponent,
-    HistoricoComponent
+    HistoricoComponent,
+    FormUsuarioComponent
   ],
   imports: [
     BrowserModule,

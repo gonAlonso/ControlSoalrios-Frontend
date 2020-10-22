@@ -27,17 +27,10 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params.id;
     this.empSrv.getUsuario(id).subscribe(
       data => {
-        this.usuario = data.datos;
-        this.editUserForm = this.formBuilder.group({
-          nombre: [this.usuario.nombre, [Validators.required]],
-          dni: [this.usuario.dni, [Validators.required]],
-          tlf: [this.usuario.tlf, [Validators.required]],
-          email: [this.usuario.email, [Validators.required]],
-          fototipo: [this.usuario.fototipo],
-        });
+        this.usuario = data.datos as Usuario;
+        console.log("User loaded:" + JSON.stringify( this.usuario));
       },
       error => {
-        // Show error message
         console.log("Error al cargar la lista de usuarios");
       }
     );

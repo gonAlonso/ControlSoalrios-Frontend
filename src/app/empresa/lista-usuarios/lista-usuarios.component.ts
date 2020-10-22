@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./lista-usuarios.component.css']
 })
 export class ListaUsuariosComponent implements OnInit {
-  @Output() outUsuarioSlected = new EventEmitter<string>();
+  @Output() outUsuarioSelected = new EventEmitter<string>();
 
   public listaUsuariosActivos: Usuario[];
   public listaUsuariosEliminados: Usuario[];
@@ -52,7 +52,7 @@ export class ListaUsuariosComponent implements OnInit {
 
   loadUser(e, id: string) {
     e.preventDefault();
-    this.router.navigateByUrl( this.router.createUrlTree( [`/empresa/usuario/${id}`]));
+    this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', id]}}]);
   }
 
   buscaUsuario(texto) {
