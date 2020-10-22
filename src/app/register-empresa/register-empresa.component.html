@@ -1,0 +1,36 @@
+<div id="register_empresa">
+
+  <h3>Sign in your company</h3>
+  <form [formGroup]="this.form">
+  <label for="co_name">Nombre de empresa</label>
+  <input type="text" name="coname" placeholder="Nombre Empresa" formControlName="coname"/>
+
+  <label>Nombre fiscal</label>
+  <input type="text" name="fiscalname" placeholder="Nombre fiscal" formControlName="fiscalname"/>
+
+  <label>CIF</label>
+  <input type="text" name="cif" placeholder="CIF" formControlName="cif"/>
+
+  <label>Direccion fiscal</label>
+  <input type="text" name="postaddress" placeholder="Direccion fiscal" formControlName="postaddress"/>
+
+  <label>Tlf</label>
+  <input type="text" name="tlf" placeholder="Telefono" formControlName="tlf"/>
+
+  <label>Tipo de bono</label>
+  <select name="tipobono" formControlName="bono">
+    <option>MINUTOS</option>
+    <option>SESIONES</option>
+  </select>
+
+  <label for="email">e-mail</label>
+  <input type="email" name="email" placeholder="Email" formControlName="email"/>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="Password" formControlName="password"/>
+
+  <button type="submit" [disabled]="form.invalid" (click)="onSubmit($event)" >Enviar</button>
+</form>
+
+
+</div>

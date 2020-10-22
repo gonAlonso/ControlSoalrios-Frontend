@@ -8,17 +8,25 @@ import { EditEmpresaComponent } from './empresa/edit-empresa/edit-empresa.compon
 import { GestionUsuariosComponent } from './empresa/gestion-usuarios/gestion-usuarios.component';
 import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
 import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
+import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HistoricoComponent } from './empresa/historico/historico.component';
+import { ListaUsuariosComponent } from './empresa/lista-usuarios/lista-usuarios.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
+  {path: 'register', component: RegisterEmpresaComponent},
   {path: 'admin-login', component: AdminLoginComponent },
   {path: 'admin-panel', component: AdminPanelComponent},
-  {path: 'empresa', component: GestionEmpresaComponent},
-  {path: 'empresa/edit', component: EditEmpresaComponent},
-  {path: 'empresa/usuarios', component: GestionUsuariosComponent},
-  {path: 'empresa/add-usuario', component: AddUsuarioComponent},
-  {path: 'empresa/usuario/:id', component: GestionUsuarioEmpresaComponent},
+  {path: 'empresa', component: GestionEmpresaComponent, children:[
+    {path: 'edit', component: EditEmpresaComponent, outlet: 'secondary'},
+    {path: 'add-usuario', component: AddUsuarioComponent, outlet: 'secondary'},
+    {path: 'usuarios', component: GestionUsuariosComponent, outlet: 'secondary'},
+    {path: 'usuario/:id', component: GestionUsuarioEmpresaComponent, outlet: 'secondary'},
+    {path: 'historico', component: HistoricoComponent, outlet: 'secondary'},
+  ]},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({

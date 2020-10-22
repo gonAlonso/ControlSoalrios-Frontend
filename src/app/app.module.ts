@@ -22,7 +22,9 @@ import { GestionUsuariosComponent } from './empresa/gestion-usuarios/gestion-usu
 import { ListaUsuariosComponent } from './empresa/lista-usuarios/lista-usuarios.component';
 import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component';
 import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
-import { RegisterempresaComponent } from './login/registerempresa/registerempresa.component';
+import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HistoricoComponent } from './empresa/historico/historico.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { RegisterempresaComponent } from './login/registerempresa/registerempres
     ListaUsuariosComponent,
     AddUsuarioComponent,
     GestionUsuarioEmpresaComponent,
-    RegisterempresaComponent
+    RegisterEmpresaComponent,
+    PageNotFoundComponent,
+    HistoricoComponent
   ],
   imports: [
     BrowserModule,

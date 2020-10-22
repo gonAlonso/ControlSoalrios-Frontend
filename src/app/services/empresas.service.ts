@@ -29,8 +29,25 @@ export class EmpresasService {
       .set('Access-Control-Allow-Origin', '*')
       .set('auth-token', this.authSrv.getUser().token);
     } catch (e) {
-      console.log("Invalid Token");
+      //TODO: Send user to login again or try autorelogin
+      console.log("Invalid Token!! Must fix if");
     }
+  }
+
+
+
+  registerEmpresa( empresa: unknown): Observable<any> {
+    let body;
+    try {
+      body = JSON.stringify(empresa);
+    } catch (e) {
+      console.log("Error parsing JSON of empresa");
+      return;
+    }
+    const thisHeaders = new HttpHeaders()
+    .set('Content-type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*')
+    return this.httpClient.post(`${this.URL}/register`, body,  {headers: thisHeaders } );
   }
 
 
