@@ -2,11 +2,10 @@
 <nav>
   <ul>
     <li><a [routerLink]="['/']" routerLinkActive="router-link-active" >Inicio</a></li>
-    <li><a [routerLink]="['/admin-login']" routerLinkActive="router-link-active" >Admin login</a></li>
-    <li *ngIf="this.authService.getUser()==undefined"><a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></li>
-    <li *ngIf="this.authService.getUser()!=undefined && this.authService.getUser().type=='EMPRESA'">
-        <a [routerLink]="['/empresa']" routerLinkActive="router-link-active" >Gestion Empresa</a>
-      </li>
+    <li *ngIf="this.authService.getUser()==undefined">
+      <a [routerLink]="['/admin-login']" routerLinkActive="router-link-active" >Admin login</a></li>
+    <li *ngIf="this.authService.getUser()==undefined">
+      <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></li>
     <li *ngIf="this.authService.getUser()!=undefined"><a href="#" (click)="this.logout($event)">Logout</a></li>
   </ul>
 </nav>
