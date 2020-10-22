@@ -23,7 +23,7 @@ const routes: Routes = [
     {path: 'edit', component: EditEmpresaComponent, outlet: 'secondary'},
     {path: 'add-usuario', component: AddUsuarioComponent, outlet: 'secondary'},
     {path: 'usuarios', component: GestionUsuariosComponent, outlet: 'secondary'},
-    {path: 'usuario/:id', component: GestionUsuarioEmpresaComponent, outlet: 'secondary'},
+    {path: 'usuario/:id', component: GestionUsuarioEmpresaComponent, outlet: 'secondary',  pathMatch: 'full'},
     {path: 'historico', component: HistoricoComponent, outlet: 'secondary'},
   ]},
   {path: '**', component: PageNotFoundComponent},

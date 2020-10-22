@@ -27,12 +27,12 @@ export class LoginComponent implements OnInit {
       result => {
         let dir;
         switch (result.type) {
-          case 'EMPRESA': dir = 'empresa'; break;
+          case 'EMPRESA': dir = '/empresa'; break;
           case 'GESTOR':
           case 'USUARIO':
           default: throw new Error('Route not implemented');
         }
-        this.router.navigateByUrl( this.router.createUrlTree( [dir]));
+        this.router.navigateByUrl( dir );
       },
       error => {
         alert('Error al logearte\n' + error.statusText);
