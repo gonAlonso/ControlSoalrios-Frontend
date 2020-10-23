@@ -5,7 +5,7 @@
     <div>
       <label>Usuario</label>
       <span class="user_name">{{ this.user?.nombre||"No seleccionado"}}</span>
-      <input type="hidden" [(ngModel)]="this.user._id" [formControlName]="'idusuario'"/>
+      <input *ngIf="this.user" type="hidden" [(ngModel)]="this.user._id" [formControlName]="'idusuario'"/>
       <button [disabled]="this.user" (click)="selectUser()">Selecciona Usuario</button>
     </div>
 
