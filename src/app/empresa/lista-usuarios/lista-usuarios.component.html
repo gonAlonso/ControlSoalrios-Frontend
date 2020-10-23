@@ -1,6 +1,5 @@
-<div id="listaUsuariosComponent" [ngClass]="{'show': this.action}" *ngIf="this.listaUsuariosActivos; else listaError">
+<div id="listaUsuariosComponent" [ngClass]="{'show': this.showList}" *ngIf="this.listaUsuariosActivos; else listaError">
   <h2>Lista de usuarios</h2>
-  <h3>{{this.action}}</h3>
   <div>
     <label>Buscar</label>
     <input type="text" [(ngModel)]="searchText" placeholder="Buscar por nombre, dni o email"/>
@@ -11,12 +10,15 @@
   <ul *ngIf="this.listaUsuariosActivos.length!=0; else emptyList">
     <li *ngFor="let item of this.listaUsuariosActivos">
       {{item.nombre}}
-      <a href="#" (click)="loadUser($event,item._id)">Cargar</a>
+      <a href="#" (click)="selectUser($event,item)">Cargar</a>
     </li>
   </ul>
   <ng-template #emptyList>
     <h3>Lista de usuarios vacía</h3>
   </ng-template>
+  <div>
+    <button id="hide_button" (click)="hide()">Cancelar</button>
+  </div>
 </div>
 
 <ng-template #listaError>

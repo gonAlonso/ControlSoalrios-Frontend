@@ -9,20 +9,20 @@ import { EmpresasService } from './empresas.service';
 export class UsersService {
 
   private selectedUser: Observable<Usuario>;
-  private showList: EventEmitter<boolean>;
+  private notifyList: EventEmitter<string>;
 
   constructor() {
     this.selectedUser = undefined;
-    this.showList = new EventEmitter<boolean>();
+    this.notifyList = new EventEmitter<string>();
   }
 
   selectUser(): Observable<Usuario> {
-    this.showList.emit( true );
+    this.notifyList.emit( "show" );
     return this.selectedUser;
   }
 
   cancelSelectUser(): void {
-    this.showList.emit( false );
+    this.notifyList.emit( "hide" );
   }
 
   registerListWidget( link: Observable<Usuario>) {
@@ -30,8 +30,11 @@ export class UsersService {
   }
 
   getShowListEmitter(): Observable<any> {
-    return this.showList;
+    return this.notifyList;
   }
 
+  reloadUsers() {
+    this.notifyList.emit( "reload" );
+  }
 
 }

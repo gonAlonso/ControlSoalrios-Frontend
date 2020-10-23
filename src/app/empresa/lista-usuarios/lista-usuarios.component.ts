@@ -10,12 +10,10 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./lista-usuarios.component.css']
 })
 export class ListaUsuariosComponent implements OnInit {
-  @Output() outUsuarioSelected = new EventEmitter<string>();
-
   public listaUsuariosActivos: Usuario[];
   public listaUsuariosEliminados: Usuario[];
   public searchText: string;
-  public action: boolean;
+  public showList: boolean;
 
   private listaUsuariosRaw: Usuario[];
   private userSelected: EventEmitter<Usuario>;
@@ -29,6 +27,10 @@ export class ListaUsuariosComponent implements OnInit {
 
   ngOnInit() {
     this.searchText = '';
+    this.reloadUserList();
+  }
+
+  reloadUserList() {
     this.empSrv.getListaUsuarios().subscribe(
       data => {
         this.listaUsuariosRaw = data.datos;
@@ -42,7 +44,11 @@ export class ListaUsuariosComponent implements OnInit {
 
     this.userSrv.registerListWidget( this.userSelected );
     this.userSrv.getShowListEmitter().subscribe(
-      action => { this.action = action; }
+      action => {
+        if (action == 'show') this.showList = true;
+        else if (action == 'hide') this.showList = false;
+        else if (action == 'reload') this.reloadUserList();
+      }
     )
   }
 
@@ -69,12 +75,16 @@ export class ListaUsuariosComponent implements OnInit {
     );
   }
 
-  loadUser(e, id: string) {
+  selectUser(e, usr: Usuario) {
     e.preventDefault();
-    if (false)
-      this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', id]}}]);
-    else
-      this.outUsuarioSelected.emit( id );
+    this.hide();
+
+    if (false) {
+      this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', usr._id]}}]);
+    }
+    else {
+      this.userSelected.emit( usr );
+    }
   }
 
   buscaUsuario() {
@@ -84,6 +94,10 @@ export class ListaUsuariosComponent implements OnInit {
   limpiar() {
     this.searchText = '';
     this.filtrarUsuarios('');
+  }
+
+  hide() {
+    this.showList = false;
   }
 
 }

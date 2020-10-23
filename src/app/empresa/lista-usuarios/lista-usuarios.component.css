@@ -21,36 +21,9 @@
   transition: right 00.4s linear;
 }
 
-/*
-#listaUsuariosComponent.show {
-  animation: slideout 0.4s forwards;
-}
-
-#listaUsuariosComponent.hide {
-  animation: slidein 0.4s forwards;
-}
-*/
-@keyframes slidein {
-  from {
-    right: 0;
-    opacity: 1;
-  }
-
-  to {
-   right: -30%;
-    opacity: 0;
-  }
-}
-
-@keyframes slideout {
-  from {
-   right: -30%;
-    opacity: 0;
-  }
-
-  to {
-    right: 0;
-    opacity: 1;
-  }
-
+#hide_button {
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  padding: 20px;
 }
