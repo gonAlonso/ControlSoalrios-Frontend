@@ -26,6 +26,8 @@ import { RegisterEmpresaComponent } from './register-empresa/register-empresa.co
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HistoricoComponent } from './empresa/historico/historico.component';
 import { FormUsuarioComponent } from './empresa/form-usuario/form-usuario.component';
+import { FormBonosComponent } from './empresa/form-bonos/form-bonos.component';
+import { FormSesionComponent } from './empresa/form-sesion/form-sesion.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { FormUsuarioComponent } from './empresa/form-usuario/form-usuario.compon
     RegisterEmpresaComponent,
     PageNotFoundComponent,
     HistoricoComponent,
-    FormUsuarioComponent
+    FormUsuarioComponent,
+    FormBonosComponent,
+    FormSesionComponent
   ],
   imports: [
     BrowserModule,

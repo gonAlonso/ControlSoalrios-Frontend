@@ -11,7 +11,7 @@ import { AddUsuarioComponent } from './empresa/add-usuario/add-usuario.component
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HistoricoComponent } from './empresa/historico/historico.component';
-import { ListaUsuariosComponent } from './empresa/lista-usuarios/lista-usuarios.component';
+import { FormBonosComponent } from './empresa/form-bonos/form-bonos.component';
 
 
 const routes: Routes = [
@@ -24,6 +24,7 @@ const routes: Routes = [
     {path: 'add-usuario', component: AddUsuarioComponent, outlet: 'secondary'},
     {path: 'usuarios', component: GestionUsuariosComponent, outlet: 'secondary'},
     {path: 'usuario/:id', component: GestionUsuarioEmpresaComponent, outlet: 'secondary',  pathMatch: 'full'},
+    {path: 'add-bono', component: FormBonosComponent, outlet: 'secondary'},
     {path: 'historico', component: HistoricoComponent, outlet: 'secondary'},
   ]},
   {path: '**', component: PageNotFoundComponent},

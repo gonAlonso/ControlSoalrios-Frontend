@@ -1,0 +1,25 @@
+<div>
+  <form>
+    <h4>Crear nuevo bono de sesiones</h4>
+
+    <label>Usuario</label>
+    <span>{{ this.user }}</span>
+    <button (click)="selectUser()">Selecciona Usuario</button>
+    <button (click)="cancelSelect()">Selecciona Usuario</button>
+
+    <!--<app-lista-usuarios (outUsuarioSelected)="selectedUser($event)"></app-lista-usuarios>-->
+
+    <label for="value">Cantidad</label>
+    <input type="spin" placeholder="Cantidad" name="value" #value/>
+
+    <label for="date">Fecha limite</label>
+    <input type="date" placeholder="Fecha" name="date" #date>
+
+    <label for="tipobono" #type>Tipo de Bono</label>
+    <select required="tipobono">
+      <option>MINUTOS</option>
+      <option>SESIONES</option>
+    </select>
+    <button (click)="guardarBono(value, date, type)">Guardar Bono</button>
+  </form>
+</div>

@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { Login } from '../models/login';
 import { Empresa } from '../models/empresa';
-import { Solario } from '../models/solarios';
 
 @Injectable({
   providedIn: 'root'

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { EmpresasService } from 'src/app/services/empresas.service';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -13,11 +14,21 @@ export class ListaUsuariosComponent implements OnInit {
 
   public listaUsuariosActivos: Usuario[];
   public listaUsuariosEliminados: Usuario[];
+  public searchText: string;
+  public action: boolean;
+
   private listaUsuariosRaw: Usuario[];
-  constructor( private empSrv: EmpresasService,
-               private router: Router) { }
+  private userSelected: EventEmitter<Usuario>;
+
+  constructor(
+    private empSrv: EmpresasService,
+    private router: Router,
+    private userSrv: UsersService) {
+      this.userSelected = new EventEmitter<Usuario>();
+    }
 
   ngOnInit() {
+    this.searchText = '';
     this.empSrv.getListaUsuarios().subscribe(
       data => {
         this.listaUsuariosRaw = data.datos;
@@ -28,11 +39,19 @@ export class ListaUsuariosComponent implements OnInit {
         console.log("Error al cargar la lista de usuarios");
       }
     );
+
+    this.userSrv.registerListWidget( this.userSelected );
+    this.userSrv.getShowListEmitter().subscribe(
+      action => { this.action = action; }
+    )
   }
 
   filtrarUsuarios(filter: string) {
     this.listaUsuariosActivos = [];
     this.listaUsuariosEliminados = [];
+
+    if( this.listaUsuariosRaw==undefined ) return;
+
     this.listaUsuariosRaw.forEach( e => this.listaUsuariosActivos.push(e));
 
     this.listaUsuariosEliminados = this.listaUsuariosRaw.filter(
@@ -52,11 +71,19 @@ export class ListaUsuariosComponent implements OnInit {
 
   loadUser(e, id: string) {
     e.preventDefault();
-    this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', id]}}]);
+    if (false)
+      this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', id]}}]);
+    else
+      this.outUsuarioSelected.emit( id );
   }
 
-  buscaUsuario(texto) {
-    this.filtrarUsuarios(texto);
+  buscaUsuario() {
+    this.filtrarUsuarios(this.searchText);
+  }
+
+  limpiar() {
+    this.searchText = '';
+    this.filtrarUsuarios('');
   }
 
 }

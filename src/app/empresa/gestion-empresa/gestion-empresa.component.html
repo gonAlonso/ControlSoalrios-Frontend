@@ -1,24 +1,31 @@
-<div *ngIf="this.empresa == undefined; else empresa_loaded">
+<div id="gestion_empresa" *ngIf="this.empresa == undefined; else empresa_loaded">
   <h4>Error al cargar los datos de la empresa</h4>
   <span>{{this.error}}</span>
 </div>
 
 
 <ng-template #empresa_loaded>
+  <div id="gestion_empresa">
+    <h4 id="empresa_header">Panel de Empresa <span>{{this.empresa.nombre}}</span></h4>
 
-  <h4>Panel de Empresa <span>{{this.empresa.nombre}}</span></h4>
+    <nav id="empresa_navigation_bar">
+      <ul>
+        <li><a href="#" [routerLink]="[{outlets: {secondary: ['edit']}}]">Editar Empresa</a></li>
+        <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-usuario']}}]">Añadir usuario</a></li>
+        <li><a href="#" [routerLink]="[{outlets: {secondary: ['usuarios']}}]">Gestion usuarios</a></li>
+        <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-sesion']}}]">Nueva sesion</a></li>
+        <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-bono']}}]">Nuevo Bono</a></li>
+        <li><a href="#" [routerLink]="[{outlets: {secondary: ['historico']}}]">Historico de estados</a></li>
+      </ul>
+    </nav>
 
-  <nav>
-    <ul>
-      <li><a href="#" [routerLink]="[{outlets: {secondary: ['edit']}}]">Editar Empresa</a></li>
-      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-usuario']}}]">Añadir usuario</a></li>
-      <li><a href="#" [routerLink]="[{outlets: {secondary: ['usuarios']}}]">Gestion usuarios</a></li>
-      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-sesion']}}]">Nueva sesion</a></li>
-      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-bono']}}]">Nuevo Bono</a></li>
-      <li><a href="#" [routerLink]="[{outlets: {secondary: ['historico']}}]">Historico de estados</a></li>
-    </ul>
-  </nav>
+    <div id="main_content">
+      <router-outlet name="secondary"></router-outlet>
+    </div>
 
-  <router-outlet name="secondary"></router-outlet>
+    <div id="lista_usuarios">
+      <app-lista-usuarios></app-lista-usuarios>
+    </div>
 
+  </div>
 </ng-template>
