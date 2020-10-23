@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Empresa } from 'src/app/models/empresa';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-gestion-usuarios',
@@ -10,9 +12,20 @@ export class GestionUsuariosComponent implements OnInit {
 
   @Input() inEmpresa: Empresa;
   @Output() outReload = new EventEmitter<string>();
-  constructor() { }
+
+  constructor(
+    private usrSrv: UsersService,
+    private router: Router) { }
 
   ngOnInit() {
+    this.usrSrv.selectUser().subscribe(
+      user => {
+        this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', user._id]}}]);
+      }
+    )
+  }
+  ngOnDestroy() {
+    this.usrSrv.cancelSelectUser();
   }
 
 }
