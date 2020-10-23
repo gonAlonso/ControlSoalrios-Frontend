@@ -23,13 +23,13 @@ export class FormUsuarioComponent implements OnInit {
       nombre: [this.selectedUser==undefined? "" :this.selectedUser.nombre, [Validators.required]],
       dni: [this.selectedUser==undefined? "" :this.selectedUser.dni, [Validators.required]],
       email: [this.selectedUser==undefined? "" :this.selectedUser.email, [Validators.required]],
-      fototipo: [this.selectedUser==undefined? 'init' :this.selectedUser.email, [Validators.required]],
+      fototipo: [this.selectedUser==undefined? '' :this.selectedUser.fototipo, [Validators.required]],
       tlf: [this.selectedUser==undefined? "" :this.selectedUser.tlf , [Validators.required]],
     });
   }
 
   guardarUsuario(form: FormGroup) {
-    if (!this.userForm.valid) {
+    if (this.userForm.invalid) {
       console.log("Guardar Usuario invalid form data");
       alert("Datos de Usuario incorrectos");
       return;
@@ -39,7 +39,7 @@ export class FormUsuarioComponent implements OnInit {
       dni: form.get('dni').value,
       email:  form.get('email').value,
       fototipo:  form.get('fototipo').value,
-      tlf:  form.get('tlf').value,
+      tlf:  form.get('tlf').value.toString(),
     };
     console.log("ENVIAR");
     this.usuario.emit( newUsuario as Usuario );

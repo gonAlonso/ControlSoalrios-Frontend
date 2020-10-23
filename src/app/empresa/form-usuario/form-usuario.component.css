@@ -1,0 +1,21 @@
+#form-usaurio {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin-right: 20%;
+}
+
+#form-usaurio * {
+  flex: 1 1 49%;
+}
+
+#form-usaurio .form-usuario-header {
+  flex: 2 0 100% !important;
+  text-align: center;
+}
+
+#form-usaurio .save_button {
+  flex: 2 0 100% !important;
+  text-align: center;
+}
