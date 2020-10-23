@@ -8,7 +8,7 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class ListaBonosComponent implements OnInit {
 
-  @Input() usuario: Usuario;
+  @Input() user: Usuario;
 
   constructor() { }
 

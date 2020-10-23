@@ -1,4 +1,4 @@
-<div id="lista-bonos-usuario"  *ngIf="this.usuario?.bono && this.usuario.bono; else lista_bonos_vacia">
+<div id="lista-bonos-usuario"  *ngIf="this.user?.bono && this.user.bono; else lista_bonos_vacia">
 <!--  <ul *ngIf="this.usuario.bonos; else lista_bonos_vacia">
     <li *ngFor="let bono of this.usuario.bonos">
 hola
@@ -6,16 +6,16 @@ hola
   </ul>
 -->
   <label>Restantes</label>
-  <span>{{this.usuario.bono.restante}}</span>
+  <span>{{this.user.bono.restante}}</span>
 
   <label>Valor inicial</label>
-  <span>{{this.usuario.bono.valor}}</span>
+  <span>{{this.user.bono.valor}}</span>
 
   <label>Fecha Registro</label>
-  <span>{{this.usuario.bono.fechaRegistro}}</span>
+  <span>{{this.user.bono.fechaRegistro}}</span>
 
   <label>Fecha Limite</label>
-  <span>{{this.usuario.bono.fechaLimite}}</span>
+  <span>{{this.user.bono.fechaLimite}}</span>
 </div>
 
 <ng-template #lista_bonos_vacia>
