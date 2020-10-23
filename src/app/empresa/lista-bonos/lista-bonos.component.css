@@ -1,0 +1,17 @@
+#lista-bonos-usuario {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin-right: 20%;
+}
+
+#lista-bonos-usuario * {
+  flex: 1 1 49%;
+}
+
+#lista-bonos-usuario span {
+  text-align: end;
+}
+
+

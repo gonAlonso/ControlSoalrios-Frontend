@@ -1,3 +1,5 @@
+import { Bono } from './bono';
+
 export class Usuario {
   public nombre: string;
   public _id: string;
@@ -8,5 +10,5 @@ export class Usuario {
   public fototipo: string;
   public fechaRegistro: string;
   //public estado: {enum: ["ACTIVO", "BAJA", "ELIMINADO", "IMPAGO"]};
-  //public bono: Bono;
+  public bono: Bono;
 }
