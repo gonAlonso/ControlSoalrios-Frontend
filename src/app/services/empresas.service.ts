@@ -125,12 +125,7 @@ export class EmpresasService {
     return this.httpClient.delete( `${this.URL}/usuario/${id}`, {headers: this.getHeaders() } );
   }
 
-  addBono(user: string, value: number, date: Date, type: String): Observable<any> {
-    let body = {
-      valor: value,
-      fechaLimite: date,
-      tipo: type
-    }
-    return this.httpClient.post( `${this.URL}/bono/${user}`, body,  {headers: this.getHeaders() } );
+  addBono(user: string, bono: any): Observable<any> {
+    return this.httpClient.post( `${this.URL}/bono/${user}`, bono,  {headers: this.getHeaders() } );
   }
 }

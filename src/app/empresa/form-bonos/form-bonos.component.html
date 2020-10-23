@@ -1,25 +1,32 @@
 <div>
-  <form>
+  <form [formGroup]="this.bonoForm">
     <h4>Crear nuevo bono de sesiones</h4>
 
-    <label>Usuario</label>
-    <span>{{ this.user }}</span>
-    <button (click)="selectUser()">Selecciona Usuario</button>
-    <button (click)="cancelSelect()">Selecciona Usuario</button>
+    <div>
+      <label>Usuario</label>
+      <span >{{ this.user?.nombre||"No seleccionado"}}</span>
+      <input type="hidden" [(ngModel)]="this.user._id" [formControlName]="'idusuario'"/>
+      <button (click)="selectUser()">Selecciona Usuario</button>
+    </div>
 
-    <!--<app-lista-usuarios (outUsuarioSelected)="selectedUser($event)"></app-lista-usuarios>-->
+    <div>
+      <label for="value">Cantidad</label>
+      <input type="spin" placeholder="Cantidad" name="value" [formControlName]="'cantidad'"/>
+    </div>
 
-    <label for="value">Cantidad</label>
-    <input type="spin" placeholder="Cantidad" name="value" #value/>
+    <div>
+      <label for="date">Fecha limite</label>
+      <input type="date" placeholder="Fecha" name="date" [formControlName]="'fecha'">
+    </div>
 
-    <label for="date">Fecha limite</label>
-    <input type="date" placeholder="Fecha" name="date" #date>
+    <div>
+      <label for="tipobono">Tipo de Bono</label>
+      <select required="tipobono" [formControlName]="'tipobono'">
+        <option>MINUTOS</option>
+        <option>SESIONES</option>
+      </select>
+    </div>
 
-    <label for="tipobono" #type>Tipo de Bono</label>
-    <select required="tipobono">
-      <option>MINUTOS</option>
-      <option>SESIONES</option>
-    </select>
-    <button (click)="guardarBono(value, date, type)">Guardar Bono</button>
+    <button [disabled]="bonoForm.invalid" (click)="guardarBono()">Guardar Bono</button>
   </form>
 </div>
