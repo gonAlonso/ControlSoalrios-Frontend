@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
 import { EmpresasService } from 'src/app/services/empresas.service';
@@ -11,14 +11,14 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class FormBonosComponent implements OnInit {
 
-  public user: Usuario;
+  @Input() user: Usuario;
   public bonoForm: FormGroup;
 
   constructor(
     private srvEmpresa: EmpresasService,
     private userSrv: UsersService,
     private formBuilder: FormBuilder) {
-      this.user = {nombre: ''} as Usuario;
+      //this.user = {nombre: ''} as Usuario;
     }
 
 
@@ -70,8 +70,7 @@ export class FormBonosComponent implements OnInit {
       );
   }
 
-  selectedUser(event) {
+/*   selectedUser(event) {
     this.user = event;
-    // Hide user list
-  }
+  } */
 }

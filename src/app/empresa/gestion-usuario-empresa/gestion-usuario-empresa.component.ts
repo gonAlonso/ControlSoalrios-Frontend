@@ -3,6 +3,7 @@ import { EmpresasService } from 'src/app/services/empresas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-gestion-usuario-empresa',
@@ -13,9 +14,11 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
 
   public usuario: Usuario;
 
-  constructor(private empSrv: EmpresasService,
-              private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+  constructor(
+    private empSrv: EmpresasService,
+    private usrSrv: UsersService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.loadUser();
@@ -34,21 +37,11 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
     );
   }
 
-  guardarUsuario(form: FormGroup) {
-    if (!form.valid) {
-      alert("Datos de usuario incorrectos");
-      return;
-    }
-    const nuevoUsuario = {
-        nombre: form.get('nombre').value,
-        dni: form.get('dni').value,
-        tlf: form.get('tlf').value.toString(),
-        email: form.get('email').value,
-        fototipo: form.get('fototipo').value,
-    };
-    this.empSrv.updateUsuario(this.usuario._id, nuevoUsuario as Usuario).subscribe(
+  guardarUsuario(usuario: Usuario) {
+    this.empSrv.updateUsuario(this.usuario._id, usuario ).subscribe(
       ok => {
         this.loadUser();
+        this.usrSrv.reloadUsers();
         //TODO: Mostrar proceso OK
       },
       err => {
