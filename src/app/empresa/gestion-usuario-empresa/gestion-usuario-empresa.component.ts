@@ -12,11 +12,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class GestionUsuarioEmpresaComponent implements OnInit {
 
   public usuario: Usuario;
-  public editUserForm: FormGroup;
 
   constructor(private empSrv: EmpresasService,
               private activatedRoute: ActivatedRoute,
-              private formBuilder: FormBuilder,
               private router: Router) { }
 
   ngOnInit() {
