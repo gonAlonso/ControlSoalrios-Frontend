@@ -1,0 +1,21 @@
+#form-edit-empresa
+{
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%
+}
+
+#form-edit-empresa h4,
+#form-edit-empresa button
+{
+  flex: 2 0 100%;
+}
+
+#form-edit-empresa label,
+#form-edit-empresa input,
+#form-edit-empresa select
+{
+  flex: 1 1 49%;
+}
+
+

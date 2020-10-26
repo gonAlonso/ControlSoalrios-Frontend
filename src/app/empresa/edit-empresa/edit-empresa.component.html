@@ -1,22 +1,38 @@
-<div>
+<div id="edit-empresa">
   <h3>Modificar datos de empresa</h3>
-  <form *ngIf="this.editForm" [formGroup]="this.editForm">
-    <ul>
-      <li>CIF: <input type="text" [formControlName]="'cif'"/></li>
-      <li>Nombre: <input type="text" [formControlName]="'name'"/></li>
-      <li>Nombre Fiscal: <input type="text" [formControlName]="'fiscalname'"/></li>
-      <li>Direccion: <input type="text" [formControlName]="'address'" /></li>
-      <li>Tlf.: <input type="text" [formControlName]="'telefone'"/></li>
-      <li>Tipo de Bonos
-        <select formControlName="tipoBono">
-          <option value="MINUTOS">Minutos</option>
-          <option value="SESIONES">Sesiones</option>
-        </select>
-      </li>
-    </ul>
+
+  <app-gestion-operarios [inOperarios]="this.empresa?.operarios" ></app-gestion-operarios>
+
+  <app-gestion-solarios [inSolarios]="this.empresa?.solarios"></app-gestion-solarios>
+
+
+  <form id="form-edit-empresa" *ngIf="this.editForm" [formGroup]="this.editForm">
+    <h4>Datos de la empresa</h4>
+      <label for="cifempresa">CIF</label>
+      <input name="cifempresa" type="text" [formControlName]="'cif'"/>
+
+      <label for="nombreempresa">Nombre</label>
+      <input name="nombreempresa" type="text" [formControlName]="'name'"/>
+
+      <label for="nombrefiscalempresa">Nombre Fiscal</label>
+      <input name="nombrefiscalempresa" type="text" [formControlName]="'fiscalname'"/>
+
+      <label for="addressempresa">Direccion</label>
+      <input name="addressempresa" type="text" [formControlName]="'address'" />
+
+      <label for="tlfempresa">Tlf.</label>
+      <input name="tlfempresa" type="text" [formControlName]="'telefone'"/>
+
+      <label for="bonoempresa">Tipo de Bonos</label>
+      <select name="bonoempresa" formControlName="tipoBono">
+        <option value="MINUTOS">Minutos</option>
+        <option value="SESIONES">Sesiones</option>
+      </select>
+
     <button (click)="updateEmpresa(editForm)">Guardar Cambios</button>
   </form>
 </div>
+
 
 <div>
   <p>Atención. Esta función es irreversible</p>
