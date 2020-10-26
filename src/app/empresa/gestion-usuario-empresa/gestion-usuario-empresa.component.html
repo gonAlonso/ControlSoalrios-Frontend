@@ -1,19 +1,24 @@
-<h3>Lista de sesiones</h3>
+<div>
 
-<app-lista-bonos [user]="this.usuario"></app-lista-bonos>
-<app-form-bonos [user]="this.usuario"></app-form-bonos>
+  <h2>Gestionar usuario <span class="nombre">{{ this.usuario?.nombre }}</span></h2>
+  <h3>Lista de sesiones</h3>
 
-<h3>Añadir sesion de usuario</h3>
+  <app-lista-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-lista-bonos>
+  <app-form-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-form-bonos>
 
-<app-form-usuario
+  <h3>Añadir sesion de usuario</h3>
+
+  <app-form-usuario
   [selectedUser]="this.usuario"
   (usuario)="guardarUsuario($event)">
-</app-form-usuario>
+  </app-form-usuario>
 
-<label>Fecha de Registro</label>
-<span *ngIf="this.usuario!=undefined">{{this.usuario.fechaRegistro}}</span>
+  <label>Fecha de Registro</label>
+  <span *ngIf="this.usuario!=undefined">{{this.usuario.fechaRegistro}}</span>
 
-<div>
-  <h3>Eliminar usuario</h3>
-  <button (click)="eliminarUsuario()">Eliminar Usuario</button>
+  <div>
+    <h3>Eliminar usuario</h3>
+    <button (click)="eliminarUsuario()">Eliminar Usuario</button>
+  </div>
+
 </div>

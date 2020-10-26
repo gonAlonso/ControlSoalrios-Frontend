@@ -1,4 +1,33 @@
-.user_name {
-  padding: 0 20px;
-  font-size: 1.4em;
+#form-add-bono
+{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin-right: 20%;
 }
+
+#form-add-bono *
+{
+  flex: 1 1 49%;
+}
+
+#form-add-bono h4
+{
+  flex: 2 0 100% !important;
+  text-align: center;
+}
+
+#form-add-bono .user_name
+{
+  flex: 1 1 32%;
+}
+
+
+#form-add-bono .save_button
+{
+  flex: 2 0 100% !important;
+  text-align: center;
+}
+
+

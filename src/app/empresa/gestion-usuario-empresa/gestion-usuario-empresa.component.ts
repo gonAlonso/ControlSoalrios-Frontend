@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmpresasService } from 'src/app/services/empresas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
@@ -60,6 +60,11 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
         alert("No se ha podid eliminar el usuario");
       }
     )
+  }
+
+  reloadEvent(evt) {
+    console.log("Reload event");
+    this.loadUser();
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
 import { EmpresasService } from 'src/app/services/empresas.service';
@@ -12,12 +12,14 @@ import { UsersService } from 'src/app/services/users.service';
 export class FormBonosComponent implements OnInit {
 
   @Input() user: Usuario;
+  @Output() sendReload: EventEmitter<string>;
   public bonoForm: FormGroup;
 
   constructor(
     private srvEmpresa: EmpresasService,
     private userSrv: UsersService,
     private formBuilder: FormBuilder) {
+      this.sendReload = new EventEmitter<string>();
       //this.user = {nombre: ''} as Usuario;
     }
 
@@ -60,8 +62,8 @@ export class FormBonosComponent implements OnInit {
       this.user._id,
       bono).subscribe(
         arg => {
-          // Load user profile
           this.userSrv.reloadUsers();
+          this.sendReload.emit("reload");
         },
         err => {
           alert("No se ha podido registrar el Bono\n"+err)
