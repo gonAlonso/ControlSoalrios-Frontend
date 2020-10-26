@@ -1,4 +1,5 @@
-#lista-bonos-usuario {
+#lista-bonos-usuario
+{
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -6,12 +7,17 @@
   margin-right: 20%;
 }
 
-#lista-bonos-usuario * {
+#lista-bonos-usuario *
+{
   flex: 1 1 49%;
 }
 
-#lista-bonos-usuario span {
+#lista-bonos-usuario span
+{
   text-align: end;
 }
 
-
+#lista-bonos-usuario h3
+{
+  flex: 2 0 100%;
+}
