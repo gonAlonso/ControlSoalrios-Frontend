@@ -29,6 +29,8 @@ import { FormUsuarioComponent } from './empresa/form-usuario/form-usuario.compon
 import { FormBonosComponent } from './empresa/form-bonos/form-bonos.component';
 import { FormSesionComponent } from './empresa/form-sesion/form-sesion.component';
 import { ListaBonosComponent } from './empresa/lista-bonos/lista-bonos.component';
+import { ListaSesionesComponent } from './empresa/lista-sesiones/lista-sesiones.component';
+import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-sesiones.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { ListaBonosComponent } from './empresa/lista-bonos/lista-bonos.component
     FormUsuarioComponent,
     FormBonosComponent,
     FormSesionComponent,
-    ListaBonosComponent
+    ListaBonosComponent,
+    ListaSesionesComponent,
+    GestionSesionesComponent,
   ],
   imports: [
     BrowserModule,

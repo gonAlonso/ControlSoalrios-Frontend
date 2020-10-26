@@ -1,0 +1,14 @@
+<div id="listasesiones" *ngIf="this.listaSesiones; else listaError">
+  <h2>Lista de sesiones</h2>
+
+  <ul>
+    <li *ngFor="let item of this.listaSesiones">
+    </li>
+  </ul>
+</div>
+
+<ng-template #listaError>
+  <div id="listasesiones">
+    <h3>No hay lista de sesiones</h3>
+  </div>
+</ng-template>

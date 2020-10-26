@@ -12,6 +12,7 @@ import { RegisterEmpresaComponent } from './register-empresa/register-empresa.co
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HistoricoComponent } from './empresa/historico/historico.component';
 import { FormBonosComponent } from './empresa/form-bonos/form-bonos.component';
+import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-sesiones.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
     {path: 'usuarios', component: GestionUsuariosComponent, outlet: 'secondary'},
     {path: 'usuario/:id', component: GestionUsuarioEmpresaComponent, outlet: 'secondary',  pathMatch: 'full'},
     {path: 'add-bono', component: FormBonosComponent, outlet: 'secondary'},
+    {path: 'add-sesion', component: GestionSesionesComponent, outlet: 'secondary'},
     {path: 'historico', component: HistoricoComponent, outlet: 'secondary'},
   ]},
   {path: '**', component: PageNotFoundComponent},
