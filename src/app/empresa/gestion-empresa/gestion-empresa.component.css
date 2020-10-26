@@ -1,4 +1,8 @@
-#gestion_empresa {
+#gestion_empresa.loginerror {
+  color:  red;
+}
+
+#gestion_empresa.loginok {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;

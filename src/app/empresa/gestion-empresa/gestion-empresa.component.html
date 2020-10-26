@@ -1,11 +1,14 @@
-<div id="gestion_empresa" *ngIf="this.empresa == undefined; else empresa_loaded">
-  <h4>Error al cargar los datos de la empresa</h4>
-  <span>{{this.error}}</span>
+<div id="gestion_empresa" class="loginerror" *ngIf="this.empresa == undefined; else empresa_loaded">
+  <h4>Error al cargar los datos de la empresa <span>{{this.error}}</span></h4>
+  <a href="/login">LogIn again</a>
+  <script>
+    this.authService.logout();
+  </script>
 </div>
 
 
 <ng-template #empresa_loaded>
-  <div id="gestion_empresa">
+  <div id="gestion_empresa" class="loginok">
     <h4 id="empresa_header">Panel de Empresa <span>{{this.empresa.nombre}}</span></h4>
 
     <nav id="empresa_navigation_bar">
