@@ -18,9 +18,10 @@ export class GestionUsuariosComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.usrSrv.selectUser().subscribe(
+    const event = this.usrSrv.selectUser().subscribe(
       user => {
         this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', user._id]}}]);
+        event.unsubscribe();
       }
     )
   }

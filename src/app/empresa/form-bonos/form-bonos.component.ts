@@ -35,12 +35,13 @@ export class FormBonosComponent implements OnInit {
   }
 
   selectUser() {
-    this.userSrv.selectUser().subscribe(
+    const event = this.userSrv.selectUser().subscribe(
       evtUser => {
         console.log("Event received");
         if (evtUser != undefined) {
           this.user = evtUser;
         }
+        event.unsubscribe();
       }
     );
   }

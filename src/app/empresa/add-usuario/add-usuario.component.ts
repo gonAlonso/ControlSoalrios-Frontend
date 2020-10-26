@@ -3,6 +3,7 @@ import { FormGroup, FormGroupName, FormBuilder, Validators } from '@angular/form
 import { Usuario } from 'src/app/models/usuario';
 import { EmpresasService } from 'src/app/services/empresas.service';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-add-usuario',
@@ -14,7 +15,8 @@ export class AddUsuarioComponent implements OnInit {
   //public addUserForm: FormGroup;
   constructor(
     private empSrv: EmpresasService,
-    private router: Router ) { }
+    private router: Router,
+    private usrSrv: UsersService ) { }
 
   ngOnInit() {}
 
@@ -22,6 +24,7 @@ export class AddUsuarioComponent implements OnInit {
     console.log( "NEW User: " + JSON.stringify(user) );
     this.empSrv.addUsuario(user as Usuario).subscribe(
       done => {
+        this.usrSrv.reloadUsers();
         this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', done.datos._id]}}]);
       },
       msg => {
