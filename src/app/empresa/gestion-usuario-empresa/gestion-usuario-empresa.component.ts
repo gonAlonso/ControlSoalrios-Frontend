@@ -1,8 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmpresasService } from 'src/app/services/empresas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -29,7 +28,6 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
     this.empSrv.getUsuario(id).subscribe(
       data => {
         this.usuario = data.datos as Usuario;
-        console.log("User loaded:" + JSON.stringify( this.usuario));
       },
       error => {
         console.log("Error al cargar la lista de usuarios");
@@ -63,7 +61,6 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
   }
 
   reloadEvent(evt) {
-    console.log("Reload event");
     this.loadUser();
   }
 

@@ -13,8 +13,10 @@ import { EmpresasService } from 'src/app/services/empresas.service';
 export class GestionOperariosComponent implements OnInit {
   public form: FormGroup;
   private operario: Operario;
+
   @Input() inOperarios: Operario[];
   @Output() outReload = new EventEmitter<string>();
+
   constructor(private empSrv: EmpresasService,
               private authService: AuthService,
               private router: Router,
@@ -33,7 +35,7 @@ export class GestionOperariosComponent implements OnInit {
     ev.preventDefault();
     this.empSrv.deleteOperario(id).subscribe(
       result => {
-        this.outReload.emit('reload');
+        this.empSrv.notifyUpdate('delete-operario');
       },
       error => {
         alert("No se ha podido eliminar el operario");
@@ -55,7 +57,7 @@ export class GestionOperariosComponent implements OnInit {
 
     this.empSrv.addOperario(newOperario as Operario).subscribe(
       data => {
-        this.outReload.emit('reload');
+        this.empSrv.notifyUpdate('add-operario');
       },
       err => {
 

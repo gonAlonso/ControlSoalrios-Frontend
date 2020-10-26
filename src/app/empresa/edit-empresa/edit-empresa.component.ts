@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmpresasService } from '../../services/empresas.service';
 import { Empresa } from '../../models/empresa';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -10,34 +10,45 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class EditEmpresaComponent implements OnInit {
 
-  private empresa: Empresa;
+  public empresa: Empresa;
   public editForm: FormGroup;
 
   //@Input() empresa: Empresa;
-  @Output() outReload = new EventEmitter<string>();
+  //@Output() outReload = new EventEmitter<string>();
 
-  constructor(private empresaSrv: EmpresasService, private formBuilder: FormBuilder) {}
+  constructor(
+    private empresaSrv: EmpresasService,
+    private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.empresaSrv.getDataEmpresa().subscribe(
-      res => {
-        this.empresa = res.datos;
-        this.editForm = this.formBuilder.group({
-          cif: [this.empresa.cif, [Validators.required]],
-          name: [this.empresa.nombre, [Validators.required]],
-          fiscalname: [this.empresa.nombreFiscal, [Validators.required]],
-          address: [this.empresa.direccion, [Validators.required]],
-          telefone: [this.empresa.tlf, [Validators.required]],
-          tipoBono: [this.empresa.tipoBono]
-        });
+    this.reloadEmpresa();
+
+    this.empresaSrv.notification.subscribe(
+      evt => {
+        this.reloadEmpresa();
+      }
+      );
+
+    }
+
+    reloadEmpresa() {
+      this.empresaSrv.getDataEmpresa().subscribe(
+        res => {
+          this.empresa = res.datos;
+          this.editForm = this.formBuilder.group({
+            cif: [this.empresa.cif, [Validators.required]],
+            name: [this.empresa.nombre, [Validators.required]],
+            fiscalname: [this.empresa.nombreFiscal, [Validators.required]],
+            address: [this.empresa.direccion, [Validators.required]],
+            telefone: [this.empresa.tlf, [Validators.required]],
+            tipoBono: [this.empresa.tipoBono]
+          });
       },
       error => {
         console.log("No se puede cargar los datos de la empresa\n"+  error.statusText)
       }
     );
   }
-
-  reloadEmpresa() { this.outReload.emit('reloadEmpresa'); }
 
 
   updateEmpresa(form: FormGroup) {

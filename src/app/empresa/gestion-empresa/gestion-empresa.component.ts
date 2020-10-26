@@ -24,6 +24,9 @@ export class GestionEmpresaComponent implements OnInit {
       this.router.navigateByUrl( this.router.createUrlTree( ['/']));
       return;
     }
+    this.empSrv.notification.subscribe(
+      evt => {this.reloadEmpresa();}
+    );
     this.reloadEmpresa();
   }
 

@@ -15,7 +15,7 @@ export class GestionSolariosComponent implements OnInit {
   public form: FormGroup;
   private solario: Solario;
   @Input() inSolarios: Solario[];
-  @Output() outReload = new EventEmitter<string>();
+
   constructor(private empSrv: EmpresasService,
               private formBuilder: FormBuilder) { }
 
@@ -32,7 +32,7 @@ export class GestionSolariosComponent implements OnInit {
     ev.preventDefault();
     this.empSrv.deleteSolario(id).subscribe(
       result => {
-        this.outReload.emit('reload');
+        this.empSrv.notifyUpdate('delete-solario');
       },
       error => {
         alert("No se ha podido eliminar el solario");
@@ -46,15 +46,15 @@ export class GestionSolariosComponent implements OnInit {
       alert("Datos de Solario incorrectos");
       return;
     }
-    const newOperario = {
+    const newSolario = {
       nombre: form.get('nombre').value,
       potencia: form.get('potencia').value,
       proximaRevision: form.get('proximaRevision').value,
     };
 
-    this.empSrv.addSolario(newOperario as Solario).subscribe(
+    this.empSrv.addSolario(newSolario as Solario).subscribe(
       data => {
-        this.outReload.emit('reload');
+        this.empSrv.notifyUpdate('add-solario');
       },
       err => {
         alert("Fallo al añadir el solario: " + err.responseText);

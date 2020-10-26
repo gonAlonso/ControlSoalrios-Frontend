@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Empresa } from '../models/empresa';
 import { Observable } from 'rxjs';
@@ -14,12 +14,19 @@ import { Usuario } from '../models/usuario';
 export class EmpresasService {
 
   private URL: string;
+  public notification: EventEmitter<string>;
 
   constructor(
     private httpClient: HttpClient,
     private authSrv: AuthService) {
 
     this.URL = `${environment.url}empresa`;
+
+    this.notification = new EventEmitter<string>();
+  }
+
+  notifyUpdate( txt: string = 'relad') {
+    this.notification.emit( txt )
   }
 
   getHeaders() {
@@ -128,4 +135,10 @@ export class EmpresasService {
   addBono(user: string, bono: any): Observable<any> {
     return this.httpClient.post( `${this.URL}/bono/${user}`, bono,  {headers: this.getHeaders() } );
   }
+
+  getSessionList(user: string) {
+    console.log("NEW CALL TO getSessionList")
+    return this.httpClient.get( `${this.URL}/sesion/${user}`, {headers: this.getHeaders() } );
+  }
+
 }
