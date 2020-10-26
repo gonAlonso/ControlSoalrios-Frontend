@@ -1,8 +1,9 @@
 <div>
 
   <h2>Gestionar usuario <span class="nombre">{{ this.usuario?.nombre }}</span></h2>
-  <h3>Lista de sesiones</h3>
 
+  <app-lista-sesiones [user]="this.usuario"></app-lista-sesiones>
+  <app-gestion-sesiones [user]="this.usuario"></app-gestion-sesiones>
   <app-lista-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-lista-bonos>
   <app-form-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-form-bonos>
 

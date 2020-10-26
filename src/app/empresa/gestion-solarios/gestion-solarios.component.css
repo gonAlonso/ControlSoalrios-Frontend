@@ -1,0 +1,19 @@
+#form-gestion-solarios
+{
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%
+}
+
+#form-gestion-solarios h4,
+#form-gestion-solarios button
+{
+  flex: 2 0 100%;
+}
+
+#form-gestion-solarios label,
+#form-gestion-solarios input,
+#form-gestion-solarios select
+{
+  flex: 1 1 49%;
+}

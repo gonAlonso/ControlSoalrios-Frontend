@@ -1,0 +1,19 @@
+#form-gestion_operarios
+{
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%
+}
+
+#form-gestion_operarios h4,
+#form-gestion_operarios button
+{
+  flex: 2 0 100%;
+}
+
+#form-gestion_operarios label,
+#form-gestion_operarios input,
+#form-gestion_operarios select
+{
+  flex: 1 1 49%;
+}
