@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmpresasService } from '../../services/empresas.service';
 import { Empresa } from '../../models/empresa';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-edit-empresa',
@@ -17,6 +18,7 @@ export class EditEmpresaComponent implements OnInit {
   //@Output() outReload = new EventEmitter<string>();
 
   constructor(
+    private authSrv: AuthService,
     private empresaSrv: EmpresasService,
     private formBuilder: FormBuilder) {}
 
@@ -46,6 +48,7 @@ export class EditEmpresaComponent implements OnInit {
       },
       error => {
         console.log("No se puede cargar los datos de la empresa\n"+  error.statusText)
+        this.authSrv.logout();
       }
     );
   }
