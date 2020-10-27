@@ -31,6 +31,7 @@ export class GestionSesionesComponent implements OnInit {
       solario: ['', [Validators.required]],
       duracion: ['1', [Validators.required]],
       operario: ['', [Validators.required]],
+      pin: ['', [Validators.required]],
     });
 
     this.empSrv.getDataEmpresa().subscribe(
@@ -60,7 +61,7 @@ export class GestionSesionesComponent implements OnInit {
       energia: 100,
       duracion: this.sessionForm.get('duracion').value,
       solario: this.sessionForm.get('solario').value,
-      pin: '1234',
+      pin: this.sessionForm.get('pin').value,
       operario: this.sessionForm.get('operario').value,
       bono: undefined
     }
@@ -71,7 +72,8 @@ export class GestionSesionesComponent implements OnInit {
         this.empSrv.notifyUpdate();
       },
       error => {
-        alert("No se  a podido registrar la sesion\nError: "+ error);
+        alert("No se  a podido registrar la sesion\nError: "+ error.error.mensaje);
+        console.log("No se  a podido registrar la sesion\nError: "+ error.error.mensaje);
       }
     );
   }
