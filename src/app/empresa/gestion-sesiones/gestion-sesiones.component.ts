@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Empresa } from 'src/app/models/empresa';
 import { Usuario } from 'src/app/models/usuario';
 import { EmpresasService } from 'src/app/services/empresas.service';
@@ -21,7 +22,8 @@ export class GestionSesionesComponent implements OnInit {
   constructor(
     private empSrv: EmpresasService,
     private userSrv: UsersService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private router: Router) {
       this.sendReload = new EventEmitter<string>();
   }
 
@@ -70,6 +72,7 @@ export class GestionSesionesComponent implements OnInit {
     this.empSrv.registerSesion(idusuario, sesion).subscribe(
       res => {
         this.empSrv.notifyUpdate();
+        this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', idusuario]}}]);
       },
       error => {
         alert("No se  a podido registrar la sesion\nError: "+ error.error.mensaje);
