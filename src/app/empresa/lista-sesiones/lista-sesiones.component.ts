@@ -56,7 +56,6 @@ export class ListaSesionesComponent implements OnInit {
     this.acumulatedEnergy = 0;
     this.listaSesiones.forEach( session =>{
       this.acumulatedEnergy += session.energia;
-      console.log("add " + session.energia)
     })
   }
 
