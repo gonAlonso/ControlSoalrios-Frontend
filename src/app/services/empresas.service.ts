@@ -137,7 +137,7 @@ export class EmpresasService {
   }
 
   getSessionList(user: string) {
-    console.log("NEW CALL TO getSessionList")
+    //console.log("NEW CALL TO getSessionList")
     return this.httpClient.get( `${this.URL}/sesion/${user}`, {headers: this.getHeaders() } );
   }
 
