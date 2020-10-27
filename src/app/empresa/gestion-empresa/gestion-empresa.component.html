@@ -1,6 +1,6 @@
 <div id="gestion_empresa" class="loginerror" *ngIf="this.empresa == undefined; else empresa_loaded">
   <h4>Error al cargar los datos de la empresa <span>{{this.error}}</span></h4>
-  <a href="/login">LogIn again</a>
+  <a id="reload_button" href="/login">LogIn again</a>
   <script>
     this.authService.logout();
   </script>

@@ -7,8 +7,6 @@
   <app-lista-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-lista-bonos>
   <app-form-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-form-bonos>
 
-  <h3>Añadir sesion de usuario</h3>
-
   <app-form-usuario
   [selectedUser]="this.usuario"
   (usuario)="guardarUsuario($event)">
