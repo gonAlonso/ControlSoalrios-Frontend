@@ -31,6 +31,8 @@ import { FormSesionComponent } from './empresa/form-sesion/form-sesion.component
 import { ListaBonosComponent } from './empresa/lista-bonos/lista-bonos.component';
 import { ListaSesionesComponent } from './empresa/lista-sesiones/lista-sesiones.component';
 import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-sesiones.component';
+import { GetSolarioNamePipe } from './services/get_solario_name.pipe';
+import { GetOperarioNamePipe } from './services/get_operario_name.pipe';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-ses
     ListaBonosComponent,
     ListaSesionesComponent,
     GestionSesionesComponent,
+    GetSolarioNamePipe,
+    GetOperarioNamePipe
   ],
   imports: [
     BrowserModule,
