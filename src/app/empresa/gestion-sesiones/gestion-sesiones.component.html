@@ -11,7 +11,7 @@
     <label class="solario" for="solario">Solario</label>
     <select class="solario" id="solario" name="solario" [formControlName]="'solario'">
       <option disabled selected>Selecciona</option>
-      <option [disabled]="this.empresa?.solarios?.length<0" *ngFor="let solario of this.empresa?.solarios" [value]="solario._id">
+      <option [disabled]="this.empresa?.solarios?.length<0" *ngFor="let solario of this.empresa?.solarios" [ngValue]="solario">
         <span>{{ solario.nombre }}</span>
       </option>
     </select>

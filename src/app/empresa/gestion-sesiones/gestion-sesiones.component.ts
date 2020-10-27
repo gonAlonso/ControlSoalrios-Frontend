@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Empresa } from 'src/app/models/empresa';
+import { Solario } from 'src/app/models/solarios';
 import { Usuario } from 'src/app/models/usuario';
 import { EmpresasService } from 'src/app/services/empresas.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -59,14 +60,17 @@ export class GestionSesionesComponent implements OnInit {
 
 
   saveNewSession() {
+    let solario: Solario = this.sessionForm.get('solario').value
+    let duracion: number = this.sessionForm.get('duracion').value
     const sesion = {
-      energia: 100,
-      duracion: this.sessionForm.get('duracion').value,
-      solario: this.sessionForm.get('solario').value,
+      energia: solario.potencia * (duracion/60),
+      duracion: duracion,
+      solario: solario._id,
       pin: this.sessionForm.get('pin').value,
       operario: this.sessionForm.get('operario').value,
       bono: undefined
     }
+    this.sessionForm.controls["pin"].setValue('');
     const idusuario = this.user?._id;
 
     this.empSrv.registerSesion(idusuario, sesion).subscribe(
