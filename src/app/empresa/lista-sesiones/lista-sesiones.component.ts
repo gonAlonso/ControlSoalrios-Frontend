@@ -14,8 +14,9 @@ export class ListaSesionesComponent implements OnInit {
 
   @Input() user: Usuario;
 
-  public listaSesiones: Sesion[];
   public empresa: Empresa;
+  public listaSesiones: Sesion[];
+  public acumulatedEnergy: number;
 
   constructor(private empSrv: EmpresasService) {
     this.empSrv.getDataEmpresa().subscribe(
@@ -45,8 +46,18 @@ export class ListaSesionesComponent implements OnInit {
     this.empSrv.getSessionList(this.user._id).subscribe(
       (res: any)  => {
         this.listaSesiones = res.datos;
+
+        this.updateStates();
       }
     );
+  }
+
+  updateStates() {
+    this.acumulatedEnergy = 0;
+    this.listaSesiones.forEach( session =>{
+      this.acumulatedEnergy += session.energia;
+      console.log("add " + session.energia)
+    })
   }
 
 }

@@ -1,6 +1,11 @@
 <div id="listasesiones" *ngIf="this.listaSesiones; else listaError">
   <h2>Lista de sesiones</h2>
 
+  <div class="statics">
+    <label>Energia acumulada</label>
+    <meter min='0' max='1000' [(value)]="this.acumulatedEnergy"></meter> <span>{{this.acumulatedEnergy}}</span>KJ
+  </div>
+
   <ul>
     <li *ngFor="let item of this.listaSesiones">
       <h4>Fecha: <span>{{ item.fecha | date:'short'}}</span></h4>
