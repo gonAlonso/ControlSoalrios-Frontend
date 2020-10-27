@@ -141,4 +141,15 @@ export class EmpresasService {
     return this.httpClient.get( `${this.URL}/sesion/${user}`, {headers: this.getHeaders() } );
   }
 
+
+  registerSesion( usuario, sesion ) {
+    let body;
+    try {
+      body = JSON.stringify(sesion);
+    } catch (e) {
+      console.log("Error parsing JSON of sesion");
+      return;
+    }
+    return this.httpClient.post(`${this.URL}/sesion/${usuario}`, body, { headers: this.getHeaders() } );
+  }
 }

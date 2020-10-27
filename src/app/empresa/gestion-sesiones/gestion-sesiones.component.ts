@@ -27,6 +27,7 @@ export class GestionSesionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.sessionForm = this.formBuilder.group({
+      usuario: ['', [Validators.required]],
       solario: ['', [Validators.required]],
       duracion: ['1', [Validators.required]],
       operario: ['', [Validators.required]],
@@ -55,6 +56,23 @@ export class GestionSesionesComponent implements OnInit {
 
 
   saveNewSession() {
+    const sesion = {
+      energia: 100,
+      duracion: this.sessionForm.get('duracion').value,
+      solario: this.sessionForm.get('solario').value,
+      pin: '1234',
+      operario: this.sessionForm.get('operario').value,
+      bono: undefined
+    }
+    const idusuario = this.user?._id;
 
+    this.empSrv.registerSesion(idusuario, sesion).subscribe(
+      res => {
+        this.empSrv.notifyUpdate();
+      },
+      error => {
+        alert("No se  a podido registrar la sesion\nError: "+ error);
+      }
+    );
   }
 }
