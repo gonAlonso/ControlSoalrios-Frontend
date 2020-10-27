@@ -3,6 +3,11 @@
 
   <ul>
     <li *ngFor="let item of this.listaSesiones">
+      <h4>Fecha: <span>{{ item.fecha | date:'short'}}</span></h4>
+      <h4>Energia: <span>{{ item.energia}}</span>KJ</h4>
+      <h4>Duracion: <span>{{ item.duracion}}</span> min</h4>
+      <h4>Solario: <span *ngIf="this.empresa">{{ item.solario | getSolarioName:this.empresa }}</span></h4>
+      <h4>Operario: <span *ngIf="this.empresa">{{ item.operario | getOperarioName:this.empresa }}</span></h4>
     </li>
   </ul>
 </div>
