@@ -10,11 +10,18 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'FrontEndGestionSolarios';
 
+  navbarOpen = false;
+
   constructor(public authService: AuthService, private router: Router) {}
 
   logout(e) {
     e.preventDefault();
     this.authService.logout();
+    this.navbarOpen = false;
     this.router.navigateByUrl( this.router.createUrlTree( ['/login']));
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 }
