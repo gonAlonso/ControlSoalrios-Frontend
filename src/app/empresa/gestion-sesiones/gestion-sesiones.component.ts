@@ -36,7 +36,7 @@ export class GestionSesionesComponent implements OnInit {
     this.empSrv.getDataEmpresa().subscribe(
       res => {
         this.empresa = res.datos;
-        console.log("Empresa cargada:" + JSON.stringify(this.empresa))
+        //console.log("Empresa cargada:" + JSON.stringify(this.empresa))
       }
     );
   }
@@ -46,7 +46,7 @@ export class GestionSesionesComponent implements OnInit {
     const event = this.userSrv.selectUser().subscribe(
       evtUser => {
         if (evtUser != undefined) {
-          console.log("UPDATE");
+          //console.log("UPDATE");
           this.user = evtUser;
         }
         event.unsubscribe();
