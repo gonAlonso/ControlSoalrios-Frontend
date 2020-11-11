@@ -14,6 +14,7 @@ import { HistoricoComponent } from './empresa/historico/historico.component';
 import { FormBonosComponent } from './empresa/form-bonos/form-bonos.component';
 import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-sesiones.component';
 import { VerifyComponent } from './verify/verify.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
     {path: 'add-sesion', component: GestionSesionesComponent, outlet: 'secondary'},
     {path: 'historico', component: HistoricoComponent, outlet: 'secondary'},
   ]},
+  {path: '', component: HomepageComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 
