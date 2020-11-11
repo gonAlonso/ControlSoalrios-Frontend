@@ -32,5 +32,9 @@
   <button type="submit" [disabled]="form.invalid" (click)="onSubmit($event)" >Enviar</button>
 </form>
 
+<div id="register_empresa_ok" [class.show]="this.showOkMsg">
+  <h4>Registro realizado!</h4>
+  <p>Ahora debes revisar tu buzon de email para completar el registro</p>
+</div>
 
 </div>

@@ -34,6 +34,7 @@ import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-ses
 import { GetSolarioNamePipe } from './services/get_solario_name.pipe';
 import { GetOperarioNamePipe } from './services/get_operario_name.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListaSesionesComponent,
     GestionSesionesComponent,
     GetSolarioNamePipe,
-    GetOperarioNamePipe
+    GetOperarioNamePipe,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

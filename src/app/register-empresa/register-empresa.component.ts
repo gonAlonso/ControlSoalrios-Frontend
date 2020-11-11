@@ -13,6 +13,7 @@ import { EmpresasService } from '../services/empresas.service';
 export class RegisterEmpresaComponent implements OnInit {
 
   public form: FormGroup;
+  public showOkMsg: boolean = false;
 
   constructor(private empresasSrv: EmpresasService,
               private router: Router,
@@ -50,14 +51,7 @@ export class RegisterEmpresaComponent implements OnInit {
 
     this.empresasSrv.registerEmpresa( newEmpresa as unknown ).subscribe(
       result => {
-        this.authSerrvice.login( newEmpresa.email, newEmpresa.password ).subscribe(
-          ok => {
-            this.router.navigateByUrl( this.router.createUrlTree( ["/empresa"]));
-          },
-          err => {
-            alert('Error al registrar la empresa\n' + err.error.mensaje);
-          }
-        )
+          this.showOkMsg = true;
       },
       error => {
         alert('Error al registrar la empresa\n' + error.error.mensaje);
