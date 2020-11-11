@@ -1,3 +1,39 @@
+<nav   class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" >{{ title }}</a>
+
+  <button class="navbar-toggler" type="button"
+  (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div id="empresa_navigation_bar" class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+      <!--  
+      <li class="nav-item" *ngIf="this.authService.getUser()==undefined">
+        <a class="nav-link" [routerLink]="['/admin-login']" routerLinkActive="router-link-active" >Admin login</a>
+      </li>
+      <li class="nav-item" *ngIf="this.authService.getUser()==undefined">
+        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+      </li>
+      <li class="nav-item" *ngIf="this.authService.getUser()==undefined">
+        <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
+      </li>
+      -->
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['edit']}}]">Editar Empresa</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-usuario']}}]">Añadir usuario</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['usuarios']}}]">Gestion usuarios</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-sesion']}}]">Nueva sesion</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-bono']}}]">Nuevo Bono</a></li>
+      <li><a href="#" [routerLink]="[{outlets: {secondary: ['historico']}}]">Historico de estados</a></li>
+      <li class="nav-item" *ngIf="this.authService.getUser()!=undefined">
+        <a class="nav-link" href="#" (click)="this.logOut($event)">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <div id="gestion_empresa" class="loginerror" *ngIf="this.empresa == undefined; else empresa_loaded">
   <h4>Error al cargar los datos de la empresa <span>{{this.error}}</span></h4>
   <a id="reload_button" href="/login">LogIn again</a>
@@ -10,17 +46,6 @@
 <ng-template #empresa_loaded>
   <div id="gestion_empresa" class="loginok">
     <h4 id="empresa_header">Panel de Empresa <span>{{this.empresa.nombre}}</span></h4>
-
-    <nav id="empresa_navigation_bar">
-      <ul>
-        <li><a href="#" [routerLink]="[{outlets: {secondary: ['edit']}}]">Editar Empresa</a></li>
-        <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-usuario']}}]">Añadir usuario</a></li>
-        <li><a href="#" [routerLink]="[{outlets: {secondary: ['usuarios']}}]">Gestion usuarios</a></li>
-        <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-sesion']}}]">Nueva sesion</a></li>
-        <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-bono']}}]">Nuevo Bono</a></li>
-        <li><a href="#" [routerLink]="[{outlets: {secondary: ['historico']}}]">Historico de estados</a></li>
-      </ul>
-    </nav>
 
     <div id="main_content">
       <router-outlet name="secondary"></router-outlet>

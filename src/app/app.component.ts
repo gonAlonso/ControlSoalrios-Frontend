@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +11,72 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'FrontEndGestionSolarios';
 
-  navbarOpen = false;
+  public showLogin = false;
+  public form: FormGroup;
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute) {}
 
-  logout(e) {
-    e.preventDefault();
-    this.authService.logout();
-    this.navbarOpen = false;
-    this.router.navigateByUrl( this.router.createUrlTree( ['/login']));
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+
+    this.route.fragment.subscribe((fragment: string) => {
+      if( fragment == "login") this.showLogIn(null)
+    })
+
+    const notification = this.authService.getNotifications().subscribe(
+      data => {
+        if ( data == "hideLogin" ) this.showLogIn( null )
+        if ( data == "login" ) this.hideLogIn( null )
+        else if ( data == "logout" ) this.logout( null )
+      }
+    )
   }
 
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
+  logout(e) {
+    e?.preventDefault();
+    //this.authService.logout();
+    this.showLogin = false;
+    this.router.navigateByUrl( this.router.createUrlTree( ['/']));
+  }
+
+  showLogIn(evt) {
+    evt?.preventDefault()
+    this.showLogin = true;
+  }
+
+  hideLogIn(evt) {
+    evt?.preventDefault()
+    this.showLogin = false;
+    window.location.hash = ""
+    this.form.reset()
+  }
+  
+  toggleLogin() {
+    this.showLogin = !this.showLogin;
+  }
+
+  onSubmit(formValue){
+    this.authService.login( formValue.email, formValue.password ).subscribe(
+      result => {
+        let dir;
+        switch (result.type) {
+          case 'EMPRESA': dir = '/empresa'; break;
+          case 'GESTOR':
+          case 'USUARIO':
+          default: throw new Error('Route not implemented');
+        }
+        this.hideLogIn( null )
+        this.router.navigateByUrl( dir );
+      },
+      error => {
+        alert('Error al logearte\n' + error.statusText);
+      });
   }
 }

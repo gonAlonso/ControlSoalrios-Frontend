@@ -39,6 +39,11 @@ export class GestionEmpresaComponent implements OnInit {
         this.error = error.statusText;
         //this.router.navigateByUrl( this.router.createUrlTree( ['/login']));
       }
-    );
+    )
+  }
+
+  logOut(evt) {
+    evt.preventDefault()
+    this.authService.logout()
   }
 }

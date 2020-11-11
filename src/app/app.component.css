@@ -3,3 +3,45 @@
   padding-top: 1em;
 }
 
+#login_form { display: none; }
+#login_form.show {
+  /* content: ""; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #CCC3; */
+  /* z-index: -1; */
+  backdrop-filter: blur(3px);
+  display: block;
+}
+#login_form > div {
+  /* position: fixed; */
+  background-color: #aaa;
+  padding: 2em;
+  margin: 2em auto;
+  width: 50%;
+}
+#login_form form
+{
+  margin: 0 1em;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#login_form form label,
+#login_form form input
+{
+  margin-top: 1em;
+}
+
+#login_form form label
+{
+  flex: 1 1 20%;
+}
+
+#login_form form input
+{
+  flex: 1 1 70%;
+}
