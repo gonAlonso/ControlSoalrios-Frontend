@@ -3,6 +3,8 @@ import { Empresa } from 'src/app/models/empresa';
 import { AuthService } from 'src/app/services/auth.service';
 import { EmpresasService } from 'src/app/services/empresas.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-gestion-empresa',
@@ -11,13 +13,24 @@ import { Router } from '@angular/router';
 })
 export class GestionEmpresaComponent implements OnInit {
 
-  cifEmpresa: string;
-  public empresa: Empresa;
-  public error: string;
+  public cifEmpresa: string
+  public empresa: Empresa
+  public error: string
+  public showMenu: boolean
+  public title: string
 
-  constructor( private empSrv: EmpresasService,
-               private authService: AuthService,
-               private router: Router) {}
+  constructor(
+    private empSrv: EmpresasService,
+    private authService: AuthService,
+    private router: Router)
+  {
+    this.showMenu = false
+    this.title = environment.title
+
+    this.router.events.subscribe( e=> {
+      this.hideMenuBar( null )
+    })
+  }
 
   ngOnInit() {
     if (!this.authService.getUser()) {
@@ -28,6 +41,21 @@ export class GestionEmpresaComponent implements OnInit {
       evt => {this.reloadEmpresa();}
     );
     this.reloadEmpresa();
+  }
+
+  toggleMenuBar(evt) {
+    evt?.preventDefault()
+    this.showMenu = !this.showMenu
+  }
+
+  showMenuBar(evt) {
+    evt?.preventDefault()
+    this.showMenu = true
+  }
+
+  hideMenuBar(evt) {
+    evt?.preventDefault()
+    this.showMenu = false
   }
 
   reloadEmpresa() {

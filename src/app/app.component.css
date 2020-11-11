@@ -1,8 +1,9 @@
+/*
 #main_content
 {
   padding-top: 1em;
 }
-
+*/
 #login_form { display: none; }
 #login_form.show {
   /* content: ""; */

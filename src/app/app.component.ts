@@ -30,7 +30,7 @@ export class AppComponent {
       if( fragment == "login") this.showLogIn(null)
     })
 
-    const notification = this.authService.getNotifications().subscribe(
+    this.authService.getNotifications().subscribe(
       data => {
         if ( data == "hideLogin" ) this.showLogIn( null )
         if ( data == "login" ) this.hideLogIn( null )

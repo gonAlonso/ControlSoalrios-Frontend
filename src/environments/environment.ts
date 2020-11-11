@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  title: "iSolaris",
   production: false,
   url: 'http://localhost:5300/',
 };

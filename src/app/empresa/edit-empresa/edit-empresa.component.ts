@@ -25,51 +25,17 @@ export class EditEmpresaComponent implements OnInit {
   ngOnInit() {
     this.reloadEmpresa();
 
-    this.empresaSrv.notification.subscribe(
-      evt => {
-        this.reloadEmpresa();
-      }
-      );
+    this.empresaSrv.notification.subscribe( evt => { this.reloadEmpresa() })
+  }
 
-    }
-
-    reloadEmpresa() {
-      this.empresaSrv.getDataEmpresa().subscribe(
-        res => {
-          this.empresa = res.datos;
-          this.editForm = this.formBuilder.group({
-            cif: [this.empresa.cif, [Validators.required]],
-            name: [this.empresa.nombre, [Validators.required]],
-            fiscalname: [this.empresa.nombreFiscal, [Validators.required]],
-            address: [this.empresa.direccion, [Validators.required]],
-            telefone: [this.empresa.tlf, [Validators.required]],
-            tipoBono: [this.empresa.tipoBono]
-          });
+  reloadEmpresa() {
+    this.empresaSrv.getDataEmpresa().subscribe(
+      res => {
+        this.empresa = res.datos
       },
       error => {
         console.log("No se puede cargar los datos de la empresa\n"+  error.statusText)
         this.authSrv.logout();
-      }
-    );
-  }
-
-
-  updateEmpresa(form: FormGroup) {
-    let newEmpresa = {
-      cif: form.get('cif').value,
-      nombre: form.get('name').value,
-      nombreFiscal: form.get('fiscalname').value,
-      direccion: form.get('address').value,
-      tlf: form.get('telefone').value,
-      tipoBono: form.get('tipoBono').value,
-    };
-    this.empresaSrv.updateEmpresa(newEmpresa as Empresa).subscribe(
-      response => {
-        alert("Datos guardados correctamente");
-        this.reloadEmpresa();
-      },
-      error => {
-        alert("Error al guardar los datos\n"+error.statusText);
       }
     );
   }
