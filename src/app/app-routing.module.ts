@@ -13,10 +13,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HistoricoComponent } from './empresa/historico/historico.component';
 import { FormBonosComponent } from './empresa/form-bonos/form-bonos.component';
 import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-sesiones.component';
+import { VerifyComponent } from './verify/verify.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
+  {path: 'verify/:token', component: VerifyComponent },
   {path: 'register', component: RegisterEmpresaComponent},
   {path: 'admin-login', component: AdminLoginComponent },
   {path: 'admin-panel', component: AdminPanelComponent},

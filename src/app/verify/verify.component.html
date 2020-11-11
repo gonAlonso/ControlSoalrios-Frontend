@@ -1,0 +1,16 @@
+<div *ngIf="this.verifiedOK">
+    <h3>Felicitaciones. Tu email ha sido verificado</h3>
+    <p>Ahora ya puedes empezar a usar nuestro servicio.</p>
+    <p>Usa <a href="/#login">este enlace</a> para acceder al login. Comencemos!</p>
+</div>
+
+<div *ngIf="!this.verifiedOK">
+    <div *ngIf="!this.errMsg">
+        <h4>Verificando tu email.</h4>
+        <span>Por favor, espera</span>
+    </div>
+    <div *ngIf="this.errMsg">
+        <h4>Error al verificar tu email.</h4>
+        <p>Result: <span>{{this.errMsg}}</span></p>
+    </div>
+</div>
