@@ -3,7 +3,7 @@
 
   <app-gestion-operarios [inOperarios]="this.empresa?.operarios" ></app-gestion-operarios>
 
-  <app-gestion-solarios [inSolarios]="this.empresa?.solarios"></app-gestion-solarios>
+  <app-gestion-solarios [empresa]="this.empresa"></app-gestion-solarios>
 
   <app-form-datos-empresa [empresa]="this.empresa"></app-form-datos-empresa>
 

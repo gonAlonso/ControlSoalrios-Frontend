@@ -37,6 +37,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './homepage/homepage.component';
 import { VerifyComponent } from './verify/verify.component';
 import { FormDatosEmpresaComponent } from './empresa/form-datos-empresa/form-datos-empresa.component';
+import { FormSolarioComponent } from './empresa/form-solario/form-solario.component';
+import { ListaSolariosComponent } from './empresa/lista-solarios/lista-solarios.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { FormDatosEmpresaComponent } from './empresa/form-datos-empresa/form-dat
     GetOperarioNamePipe,
     HomepageComponent,
     VerifyComponent,
-    FormDatosEmpresaComponent
+    FormDatosEmpresaComponent,
+    FormSolarioComponent,
+    ListaSolariosComponent
   ],
   imports: [
     BrowserModule,

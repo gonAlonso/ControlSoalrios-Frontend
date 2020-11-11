@@ -1,0 +1,12 @@
+<form #formSolario [formGroup]="form" id="form-gestion-solarios">
+    <label for="nombre">Nombre</label>
+    <input type="text" placeholder="Nombre" name="nombre" formControlName='nombre'/>
+
+    <label for="potencia">Potencia</label>
+    <input type="number" placeholder="Potencia" name="potencia" formControlName='potencia'/>
+
+    <label for="revision">Proxima revision</label>
+    <input type="date" placeholder="Fecha Revision" name="revision" formControlName='proximaRevision'/>
+
+    <button (click)="guardarSolario(form)">Guardar Solario</button>
+  </form>

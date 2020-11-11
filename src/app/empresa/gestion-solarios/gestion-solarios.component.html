@@ -1,22 +1,2 @@
-<h4 *ngIf="this.inSolarios==undefined; else solariosOK">Error al cargar la lista de solarios</h4>
-
-<ng-template #solariosOK>
-  <h4>Lista de solarios</h4>
-  <ul>
-    <li *ngFor="let item of this.inSolarios">{{item.nombre}}
-      <a href="#" (click)="eliminar($event,item._id)">Eliminar</a>
-    </li>
-  </ul>
-  <form #formSolario [formGroup]="form" id="form-gestion-solarios">
-    <label for="nombre">Nombre</label>
-    <input type="text" placeholder="Nombre" name="nombre" formControlName='nombre'/>
-
-    <label for="potencia">Potencia</label>
-    <input type="number" placeholder="Potencia" name="potencia" formControlName='potencia'/>
-
-    <label for="revision">Proxima revision</label>
-    <input type="date" placeholder="Fecha Revision" name="revision" formControlName='proximaRevision'/>
-
-    <button (click)="guardarSolario(form)">Guardar Solario</button>
-  </form>
-</ng-template>
+<app-lista-solarios [listaSolarios]="this.empresa?.solarios" (selectEvent)="selectSolario($event)"></app-lista-solarios>
+<app-form-solario [solario]="this.solario"></app-form-solario>

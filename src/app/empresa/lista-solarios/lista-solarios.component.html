@@ -1,0 +1,12 @@
+<h4 *ngIf="this.listaSolarios==undefined; else solariosOK">Error al cargar la lista de solarios</h4>
+
+<ng-template #solariosOK>
+  <div>
+      <h4>Lista de solarios</h4>
+      <ul>
+          <li *ngFor="let item of this.listaSolarios">
+              <a href="#" (click)="selectSolario($event,item)">{{item.nombre}}</a>
+            </li>
+        </ul>
+    </div>
+</ng-template>
