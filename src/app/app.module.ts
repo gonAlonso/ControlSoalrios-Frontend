@@ -39,6 +39,8 @@ import { VerifyComponent } from './verify/verify.component';
 import { FormDatosEmpresaComponent } from './empresa/form-datos-empresa/form-datos-empresa.component';
 import { FormSolarioComponent } from './empresa/form-solario/form-solario.component';
 import { ListaSolariosComponent } from './empresa/lista-solarios/lista-solarios.component';
+import { ListaOperariosComponent } from './empresa/lista-operarios/lista-operarios.component';
+import { FormOperarioComponent } from './empresa/form-operario/form-operario.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { ListaSolariosComponent } from './empresa/lista-solarios/lista-solarios.
     VerifyComponent,
     FormDatosEmpresaComponent,
     FormSolarioComponent,
-    ListaSolariosComponent
+    ListaSolariosComponent,
+    ListaOperariosComponent,
+    FormOperarioComponent
   ],
   imports: [
     BrowserModule,
