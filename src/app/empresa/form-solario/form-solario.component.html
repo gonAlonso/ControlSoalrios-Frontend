@@ -8,5 +8,9 @@
     <label for="revision">Proxima revision</label>
     <input type="date" placeholder="Fecha Revision" name="revision" formControlName='proximaRevision'/>
 
-    <button (click)="guardarSolario(form)">Guardar Solario</button>
+    <button
+        (click)="guardarSolario(form)"
+        [disabled]="this.form.invalid">
+        Guardar Solario
+    </button>
   </form>
