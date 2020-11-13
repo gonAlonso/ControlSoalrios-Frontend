@@ -2,8 +2,8 @@
 
 <ng-template #operariosOK>
   <h3 class="componen_header">Lista operarios</h3>
-  <ul>
-    <li *ngFor="let item of this.operarios">
+  <ul class="list-group">
+    <li *ngFor="let item of this.operarios" class="list-group-item">
         <a href="#" (click)="select($event,item)">{{item.nombre}}</a>
     </li>
   </ul>

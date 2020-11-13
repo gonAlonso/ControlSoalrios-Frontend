@@ -1,15 +1,15 @@
 <form #formSolario [formGroup]="form" id="form-gestion-solarios">
     <label for="nombre">Nombre</label>
-    <input type="text" placeholder="Nombre" name="nombre" formControlName='nombre'/>
+    <input type="text" placeholder="Nombre" name="nombre" class="form-control" formControlName='nombre'/>
 
     <label for="potencia">Potencia</label>
-    <input type="number" placeholder="Potencia" name="potencia" formControlName='potencia'/>
+    <input type="number" placeholder="Potencia" name="potencia" class="form-control" formControlName='potencia'/>
 
     <label for="revision">Proxima revision</label>
-    <input type="date" placeholder="Fecha Revision" name="revision" formControlName='proximaRevision'/>
+    <input type="date" placeholder="Fecha Revision" name="revision" class="form-control" formControlName='proximaRevision'/>
 
     <button
-        class="save_button"
+        class="save_button btn btn-primary"
         (click)="guardarSolario(form)"
         [disabled]="this.form.invalid">
         Guardar Solario

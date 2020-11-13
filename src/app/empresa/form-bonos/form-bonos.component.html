@@ -4,21 +4,21 @@
 
     <label class="user_name">Usuario</label>
     <span class="user_name">{{ this.user?.nombre||"No seleccionado"}}</span>
-    <input *ngIf="this.user" type="hidden" [(ngModel)]="this.user._id" [formControlName]="'idusuario'"/>
-    <button class="user_name" [disabled]="this.user" (click)="selectUser()">Selecciona Usuario</button>
+    <input *ngIf="this.user" type="hidden" [(ngModel)]="this.user._id" class="form-control" [formControlName]="'idusuario'"/>
+    <button class="user_name" [disabled]="this.user" class="btn btn-success" (click)="selectUser()">Selecciona Usuario</button>
 
     <label class="quantity" for="value">Cantidad</label>
-    <input class="quantity" type="spin" placeholder="Cantidad" name="value" [formControlName]="'cantidad'"/>
+    <input class="quantity" type="spin" placeholder="Cantidad" name="value" class="form-control" [formControlName]="'cantidad'"/>
 
     <label class="date" for="date">Fecha limite</label>
-    <input class="date" type="date" placeholder="Fecha" name="date" [formControlName]="'fecha'">
+    <input class="date" type="date" placeholder="Fecha" name="date" class="form-control" [formControlName]="'fecha'">
 
     <label class="type" for="tipobono">Tipo de Bono</label>
-    <select class="type" required="tipobono" [formControlName]="'tipobono'">
+    <select class="type" required="tipobono" class="form-control" [formControlName]="'tipobono'">
       <option>MINUTOS</option>
       <option>SESIONES</option>
     </select>
 
-    <button class="save_button" [disabled]="bonoForm.invalid" (click)="guardarBono()">Guardar Bono</button>
+    <button class="save_button btn btn-primary"[disabled]="bonoForm.invalid" (click)="guardarBono()">Guardar Bono</button>
   </form>
 </div>

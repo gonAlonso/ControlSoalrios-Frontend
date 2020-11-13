@@ -38,13 +38,14 @@ export class GestionSesionesComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {/*
+  ngOnInit(): void {
+  if( this.empresa ) return
   this.empSrv.getDataEmpresa().subscribe(
     res => {
       this.empresa = res.datos;
       //console.log("Empresa cargada:" + JSON.stringify(this.empresa))
     }
-    );*/
+    );
   }
 /*
   ngOnChanges() {

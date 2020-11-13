@@ -62,8 +62,8 @@ export class AppComponent {
     this.showLogin = !this.showLogin;
   }
 
-  onSubmit(formValue){
-    this.authService.login( formValue.email, formValue.password ).subscribe(
+  sendLogin(){
+    this.authService.login( this.form.get('email').value, this.form.get('password').value ).subscribe(
       result => {
         let dir;
         switch (result.type) {

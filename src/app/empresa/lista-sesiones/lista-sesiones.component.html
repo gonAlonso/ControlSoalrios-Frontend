@@ -6,13 +6,13 @@
     <meter min='0' max='1000' [(value)]="this.acumulatedEnergy"></meter> <span>{{this.acumulatedEnergy | number: '1.2-2'}}</span>KJ
   </div>
 
-  <ul>
-    <li *ngFor="let item of this.listaSesiones">
-      <h4>Fecha: <span>{{ item.fecha | date:'short'}}</span></h4>
-      <h4>Energia: <span>{{ item.energia}}</span>KJ</h4>
-      <h4>Duracion: <span>{{ item.duracion}}</span> min</h4>
-      <h4>Solario: <span *ngIf="this.empresa">{{ item.solario | getSolarioName:this.empresa }}</span></h4>
-      <h4>Operario: <span *ngIf="this.empresa">{{ item.operario | getOperarioName:this.empresa }}</span></h4>
+  <ul class="list-group">
+    <li *ngFor="let item of this.listaSesiones" class="list-group-item bd-callout bd-callout-warning">
+      <h4 class="fecha">Fecha: <span>{{ item.fecha | date:'short'}}</span></h4>
+      <h4 class="energia">Energia: <span>{{ item.energia | number: '1.0-1'}}</span>KJ</h4>
+      <h4 class="duracion">Duracion: <span>{{ item.duracion}}</span> min</h4>
+      <h4 class="solario">Solario: <span *ngIf="this.empresa">{{ item.solario | getSolarioName:this.empresa }}</span></h4>
+      <h4 class="operario">Operario: <span *ngIf="this.empresa">{{ item.operario | getOperarioName:this.empresa }}</span></h4>
     </li>
   </ul>
 </div>

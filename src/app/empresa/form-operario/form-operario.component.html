@@ -1,16 +1,16 @@
 <div id="form-operario">
     <form #formOperario [formGroup]="form" id="form-gestion_operarios" >
         <label for="nombre">Nombre</label>
-        <input type="text" placeholder="Nombre" name="nombre" formControlName='nombre'/>
+        <input type="text" placeholder="Nombre" name="nombre" class="form-control" formControlName='nombre'/>
   
         <label for="dni">DNI</label>
-        <input type="text" placeholder="DNI" name="dni" formControlName='dni'/>
+        <input type="text" placeholder="DNI" name="dni" class="form-control" formControlName='dni'/>
   
         <label for="pin">PIN</label>
-        <input type="password" placeholder="PIN" name="pin" formControlName='pin' />
+        <input type="password" placeholder="PIN" name="pin" class="form-control" formControlName='pin' />
   
         <button
-            class="save_button"
+            class="save_button btn btn-primary"
             (click)="guardarOperario(form)"
             [disabled]="this.form.invalid">
             Guardar Operario

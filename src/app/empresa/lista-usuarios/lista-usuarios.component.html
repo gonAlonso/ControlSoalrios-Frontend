@@ -7,7 +7,7 @@
     <button (click)="buscaUsuario()">Buscar</button>
   </div>
 
-  <ul *ngIf="this.listaUsuariosActivos.length!=0; else emptyList">
+  <ul *ngIf="this.listaUsuariosActivos.length!=0; else emptyList" >
     <li *ngFor="let item of this.listaUsuariosActivos">
       <a href="#" (click)="selectUser($event,item)">
         {{item.nombre}}

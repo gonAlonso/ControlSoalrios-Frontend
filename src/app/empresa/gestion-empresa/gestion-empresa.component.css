@@ -22,10 +22,14 @@ div#gestion_empresa.loginerror {
  
 #empresa_navigation_bar {
   flex: 1 0 24%;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
-#main_content {
+#main_content_empresa {
   flex: 3 1 75%;
+  margin-top: 4em;
 }
  
 #reload_button {
@@ -59,6 +63,9 @@ div#gestion_empresa li a {
 @media (min-width: 992px) {
   #empresa_navigation_bar .navbar-nav.mr-auto a {
     color: #404040;
+  }
+  #empresa_navigation_bar li {
+    margin-bottom: 1em;
   }
   #gestion_empresa.loginok {
     float: right;

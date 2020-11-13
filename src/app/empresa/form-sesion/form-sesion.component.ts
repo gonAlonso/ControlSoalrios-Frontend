@@ -70,7 +70,8 @@ export class FormSesionComponent implements OnInit {
 
     this.empSrv.registerSesion(idusuario, sesion).subscribe(
       res => {
-        this.empSrv.notifyUpdate();
+        this.sessionForm.reset()
+        this.empSrv.notifyUpdate()
         this.router.navigate( ['empresa', {outlets: {secondary: ['usuario', idusuario]}}]);
       },
       error => {

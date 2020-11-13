@@ -1,12 +1,16 @@
 <form id="form-usuario" *ngIf="this.userForm" [formGroup]="this.userForm">
   <h4 class="form-header" *ngIf="this.selectedUser!=undefined;">Modificar datos de usuario</h4>
   <h4 class="form-header" *ngIf="this.selectedUser==undefined;">Nuevo usuario</h4>
-  <label for="nombre">Nombre</label> <input type="text" placeholder="Nombre" name="nombre" formControlName="nombre"/>
-  <label for="dni">DNI</label> <input type="string" placeholder="DNI/NIE" name="DNI" formControlName='dni'/>
-  <label for="email">eMail</label> <input type="email" placeholder="eMail" name="email" formControlName='email'/>
-  <label for="tlf">Tlf</label> <input type="tel" placeholder="tlf" name="tlf" formControlName='tlf'/>
+  <label for="nombre">Nombre</label>
+  <input type="text" placeholder="Nombre" name="nombre" class="form-control" formControlName="nombre"/>
+  <label for="dni">DNI</label>
+  <input type="string" placeholder="DNI/NIE" name="DNI" class="form-control" formControlName='dni'/>
+  <label for="email">eMail</label>
+  <input type="email" placeholder="eMail" name="email" class="form-control" formControlName='email'/>
+  <label for="tlf">Tlf</label>
+  <input type="tel" placeholder="tlf" name="tlf" class="form-control" formControlName='tlf'/>
   <label for="Fototipo">Fototipo</label>
-  <select required formControlName="fototipo">
+  <select required formControlName="fototipo" class="form-control">
     <option selected value="" disabled>Selecciona</option>
     <option>A</option>
     <option>B</option>
@@ -15,7 +19,7 @@
     <option>E</option>
     <option>F</option>
   </select>
-  <button class="save_button"
+  <button class="save_button btn btn-primary"
     [disabled]="this.userForm.invalid"
     (click)="guardarUsuario(this.userForm)">
     Guardar Usuario

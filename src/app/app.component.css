@@ -3,22 +3,19 @@
 {
   padding-top: 1em;
 }
-*/
+
 #login_form { display: none; }
 #login_form.show {
-  /* content: ""; */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: #CCC3; */
-  /* z-index: -1; */
+
   backdrop-filter: blur(3px);
   display: block;
 }
 #login_form > div {
-  /* position: fixed; */
   background-color: #aaa;
   padding: 2em;
   margin: 2em auto;
@@ -46,3 +43,4 @@
 {
   flex: 1 1 70%;
 }
+*/

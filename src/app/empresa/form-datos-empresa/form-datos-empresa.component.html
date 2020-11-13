@@ -2,28 +2,28 @@
     <form id="form-edit-empresa" [formGroup]="this.form">
         <h4 class="form-header">Datos de la empresa</h4>
         <label for="cifempresa">CIF</label>
-        <input name="cifempresa" type="text" [formControlName]="'cif'"/>
+        <input name="cifempresa" type="text" class="form-control" [formControlName]="'cif'"/>
 
         <label for="nombreempresa">Nombre</label>
-        <input name="nombreempresa" type="text" [formControlName]="'name'"/>
+        <input name="nombreempresa" type="text" class="form-control" [formControlName]="'name'"/>
 
         <label for="nombrefiscalempresa">Nombre Fiscal</label>
-        <input name="nombrefiscalempresa" type="text" [formControlName]="'fiscalname'"/>
+        <input name="nombrefiscalempresa" type="text" class="form-control" [formControlName]="'fiscalname'"/>
 
         <label for="addressempresa">Direccion</label>
-        <input name="addressempresa" type="text" [formControlName]="'address'" />
+        <input name="addressempresa" type="text" class="form-control" [formControlName]="'address'" />
 
         <label for="tlfempresa">Tlf.</label>
-        <input name="tlfempresa" type="text" [formControlName]="'telefone'"/>
+        <input name="tlfempresa" type="text" class="form-control" [formControlName]="'telefone'"/>
 
         <label for="bonoempresa">Tipo de Bonos</label>
-        <select name="bonoempresa" formControlName="tipoBono">
+        <select name="bonoempresa" class="form-control" formControlName="tipoBono">
             <option value="MINUTOS">Minutos</option>
             <option value="SESIONES">Sesiones</option>
         </select>
 
         <button
-            class="save_button"
+            class="save_button btn btn-primary"
             [disabled]="this.form.invalid"
             (click)="updateEmpresa()">
             Guardar Cambios
