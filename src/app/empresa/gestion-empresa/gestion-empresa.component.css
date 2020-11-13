@@ -1,23 +1,25 @@
+ 
 #gestion_empresa.loginerror {
   color:  #F55;
 }
-
+ 
 div#gestion_empresa.loginerror {
   text-align: center;
 }
-
+ 
 #gestion_empresa.loginok {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-}
-
+  margin: 0 1em;
+ }
+ 
 #empresa_header {
   flex: 4 0 100%;
 }
-
+ 
 #empresa_navigation_bar {
   flex: 1 0 24%;
 }
@@ -25,9 +27,9 @@ div#gestion_empresa.loginerror {
 #main_content {
   flex: 3 1 75%;
 }
-
+ 
 #reload_button {
-  position: relative;
+position: relative;
   top: 2em;
   padding: 17px;
   background-color: aliceblue;
@@ -36,8 +38,8 @@ div#gestion_empresa.loginerror {
   text-align: center;
   font-weight: bold;
 }
-
-
+ 
+ 
 div#gestion_empresa li {
   list-style: none;
   margin: 10px 0;

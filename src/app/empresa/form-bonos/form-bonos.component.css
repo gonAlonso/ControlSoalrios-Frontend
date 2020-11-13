@@ -1,3 +1,4 @@
+/*
 #form-add-bono
 {
   display: flex;
@@ -6,7 +7,7 @@
   align-content: flex-start;
   margin-right: 20%;
 }
-
+*/
 #form-add-bono *
 {
   flex: 1 1 49%;
@@ -23,11 +24,11 @@
   flex: 1 1 32%;
 }
 
-
+/*
 #form-add-bono .save_button
 {
   flex: 2 0 100% !important;
   text-align: center;
 }
-
+*/
 

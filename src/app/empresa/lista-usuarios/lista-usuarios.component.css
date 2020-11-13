@@ -2,24 +2,21 @@
   display: block;
   position: fixed;
   width: 33%;
-  right: -30%;
+  right: -33%;
   top: 0px;
   background-color: white;
   opacity: 1;
   height: 100%;
   border-left: 1px solid #000;
   padding-left: 8px;
+  transition: right 00.4s ease-in-out;
 }
 
 #listaUsuariosComponent.show {
   right: 0;
-  transition: right 00.4s linear;
+  transition: right 00.4s ease-in-out;
 }
 
-#listaUsuariosComponent {
-  right: -30%;
-  transition: right 00.4s linear;
-}
 
 #hide_button {
   position: absolute;

@@ -18,7 +18,6 @@ export class GestionSolariosComponent implements OnInit {
 
   ngOnInit() {
     this.solario = new Solario()
-    console.log("Empresa:", this?.empresa)
   }
 
   selectSolario( sol: Solario ) { this.solario = sol }

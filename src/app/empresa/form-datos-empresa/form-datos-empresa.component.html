@@ -1,6 +1,6 @@
 <div>
     <form id="form-edit-empresa" [formGroup]="this.form">
-        <h4>Datos de la empresa</h4>
+        <h4 class="form-header">Datos de la empresa</h4>
         <label for="cifempresa">CIF</label>
         <input name="cifempresa" type="text" [formControlName]="'cif'"/>
 
@@ -22,6 +22,11 @@
             <option value="SESIONES">Sesiones</option>
         </select>
 
-        <button (click)="updateEmpresa()">Guardar Cambios</button>
+        <button
+            class="save_button"
+            [disabled]="this.form.invalid"
+            (click)="updateEmpresa()">
+            Guardar Cambios
+        </button>
     </form>
 </div>

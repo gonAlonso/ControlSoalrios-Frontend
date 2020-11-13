@@ -12,7 +12,7 @@ import { EmpresasService } from 'src/app/services/empresas.service';
 })
 export class ListaSesionesComponent implements OnInit {
 
-  @Input() user: Usuario;
+  @Input() usuario: Usuario;
 
   public empresa: Empresa;
   public listaSesiones: Sesion[];
@@ -41,9 +41,9 @@ export class ListaSesionesComponent implements OnInit {
   }
 
   loadSesiones() {
-    if (this.user == undefined) return;
+    if (this.usuario == undefined) return;
 
-    this.empSrv.getSessionList(this.user._id).subscribe(
+    this.empSrv.getSessionList(this.usuario._id).subscribe(
       (res: any)  => {
         this.listaSesiones = res.datos;
 

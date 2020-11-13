@@ -5,7 +5,7 @@ hola
     </li>
   </ul>
 -->
-  <h3>Lista de bonos activos</h3>
+  <h3 class="componen_header">Lista de bonos activos</h3>
   <label>Restantes</label>
   <span>{{this.user.bono.restante}}</span>
 
@@ -16,10 +16,10 @@ hola
   <span>{{this.user.bono.valor}}</span>
 
   <label>Fecha Registro</label>
-  <span>{{this.user.bono.fechaRegistro}}</span>
+  <span>{{this.user.bono.fechaRegistro | date: 'short'}}</span>
 
   <label>Fecha Limite</label>
-  <span>{{this.user.bono.fechaLimite}}</span>
+  <span>{{this.user.bono.fechaLimite | date: 'short'}}</span>
 </div>
 
 <ng-template #lista_bonos_vacia>

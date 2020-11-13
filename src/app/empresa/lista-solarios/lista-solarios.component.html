@@ -2,7 +2,7 @@
 
 <ng-template #solariosOK>
   <div>
-      <h4>Lista de solarios</h4>
+      <h3 class="componen_header">Lista de solarios</h3>
       <ul>
           <li *ngFor="let item of this.listaSolarios">
               <a href="#" (click)="selectSolario($event,item)">{{item.nombre}}</a>

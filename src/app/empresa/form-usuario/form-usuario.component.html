@@ -1,6 +1,6 @@
-<form id="form-usaurio" *ngIf="this.userForm" [formGroup]="this.userForm">
-  <h4 class="form-usuario-header" *ngIf="this.selectedUser!=undefined;">Modificar datos de usuario</h4>
-  <h4 class="form-usuario-header" *ngIf="this.selectedUser==undefined;">Nuevo usuario</h4>
+<form id="form-usuario" *ngIf="this.userForm" [formGroup]="this.userForm">
+  <h4 class="form-header" *ngIf="this.selectedUser!=undefined;">Modificar datos de usuario</h4>
+  <h4 class="form-header" *ngIf="this.selectedUser==undefined;">Nuevo usuario</h4>
   <label for="nombre">Nombre</label> <input type="text" placeholder="Nombre" name="nombre" formControlName="nombre"/>
   <label for="dni">DNI</label> <input type="string" placeholder="DNI/NIE" name="DNI" formControlName='dni'/>
   <label for="email">eMail</label> <input type="email" placeholder="eMail" name="email" formControlName='email'/>
@@ -15,5 +15,9 @@
     <option>E</option>
     <option>F</option>
   </select>
-  <button class="save_button" [disabled]="this.userForm.invalid" (click)="guardarUsuario(this.userForm)">Guardar Usuario</button>
+  <button class="save_button"
+    [disabled]="this.userForm.invalid"
+    (click)="guardarUsuario(this.userForm)">
+    Guardar Usuario
+  </button>
 </form>
