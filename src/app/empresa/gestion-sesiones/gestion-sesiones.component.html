@@ -1,2 +1,9 @@
 
-<app-form-sesion [empresa]="this.empresa"></app-form-sesion>
+<app-lista-sesiones [usuario]="this.usuario"></app-lista-sesiones>
+
+<button (click)="newsession.classList.toggle('show')">Nueva sesion</button>
+<div class="popup_window" #newsession>
+  <!--<app-gestion-sesiones [user]="this.usuario"></app-gestion-sesiones>-->
+  <app-form-sesion [empresa]="this.empresa" [usuario]="this.usuario"></app-form-sesion>
+  <button (click)="newsession.classList.remove('show')">Cancelar</button>
+</div>

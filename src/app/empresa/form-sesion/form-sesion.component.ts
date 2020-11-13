@@ -14,9 +14,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class FormSesionComponent implements OnInit {
 
-  @Input() user: Usuario
-  @Input() public empresa: Empresa
-mpresa;
+  @Input() usuario: Usuario
+  @Input() empresa: Empresa
+
   public sessionForm: FormGroup;
 
   constructor(
@@ -33,12 +33,12 @@ mpresa;
       operario: ['', [Validators.required]],
       pin: ['', [Validators.required]],
     });
-
+/*
     this.empSrv.getDataEmpresa().subscribe(
       res => {
         this.empresa = res.datos;
       }
-    );
+    );*/
   }
 
 
@@ -46,7 +46,7 @@ mpresa;
     const event = this.userSrv.selectUser().subscribe(
       evtUser => {
         if (evtUser != undefined) {
-          this.user = evtUser;
+          this.usuario = evtUser;
         }
         event.unsubscribe();
       }
@@ -66,7 +66,7 @@ mpresa;
       bono: undefined
     }
     this.sessionForm.controls["pin"].setValue('');
-    const idusuario = this.user?._id;
+    const idusuario = this.usuario?._id;
 
     this.empSrv.registerSesion(idusuario, sesion).subscribe(
       res => {

@@ -1,10 +1,10 @@
 <div id="form-sesion">
-    <form [formGroup]="this.sessionForm">
+    <form [formGroup]="this.sessionForm" >
   
       <label class="user_name">Usuario</label>
-      <span class="user_name">{{ this.user?.nombre||"No seleccionado"}}</span>
-      <input type="hidden" [ngModel]="this.user?.nombre|| undefined" [formControlName]="'usuario'"/>
-      <button class="user_name" [disabled]="this.user" (click)="selectUser()">Selecciona Usuario</button>
+      <span class="user_name">{{ this.usuario?.nombre||"No seleccionado"}}</span>
+      <input type="hidden" [ngModel]="this.usuario?.nombre|| undefined" [formControlName]="'usuario'"/>
+      <button class="user_name" [disabled]="this.usuario" (click)="selectUser()">Selecciona Usuario</button>
   
   
   
@@ -29,6 +29,9 @@
       <label class="operario" for="pinoperario">PIN</label>
       <input class="operario" type="password" name="pinoperario" placeholder="PIN"  [formControlName]="'pin'" />
   
-      <button [disabled]="this.sessionForm.invalid" (click)="saveNewSession()">Registrar sesion</button>
+      <button
+        class="save_button"
+        [disabled]="this.sessionForm.invalid"
+        (click)="saveNewSession()">Registrar sesion</button>
     </form>
   </div>

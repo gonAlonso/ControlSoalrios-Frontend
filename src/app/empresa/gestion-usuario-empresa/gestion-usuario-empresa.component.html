@@ -1,19 +1,20 @@
 <div>
 
-  <h2>Gestionar usuario <span class="nombre">{{ this.usuario?.nombre }}</span></h2>
+  <h2>Usuario <span class="nombre">{{ this.usuario?.nombre }}</span></h2>
 
-  <app-lista-sesiones [user]="this.usuario"></app-lista-sesiones>
-  <app-gestion-sesiones [user]="this.usuario"></app-gestion-sesiones>
+  <app-gestion-sesiones [usuario]="this.usuario" [empresa]="this.empresa"></app-gestion-sesiones>
   <app-lista-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-lista-bonos>
   <app-form-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-form-bonos>
 
   <app-form-usuario
-  [selectedUser]="this.usuario"
-  (usuario)="guardarUsuario($event)">
+    [selectedUser]="this.usuario"
+    (usuario)="guardarUsuario($event)">
   </app-form-usuario>
 
-  <label>Fecha de Registro</label>
-  <span *ngIf="this.usuario!=undefined">{{this.usuario.fechaRegistro}}</span>
+  <div>
+    <label>Fecha de Registro</label>
+    <span *ngIf="this.usuario!=undefined">{{this.usuario.fechaRegistro | date: 'short'}}</span>
+  </div>
 
   <div>
     <h3>Eliminar usuario</h3>

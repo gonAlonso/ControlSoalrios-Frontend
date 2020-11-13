@@ -3,6 +3,7 @@ import { EmpresasService } from 'src/app/services/empresas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsersService } from 'src/app/services/users.service';
+import { Empresa } from 'src/app/models/empresa';
 
 @Component({
   selector: 'app-gestion-usuario-empresa',
@@ -11,7 +12,8 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class GestionUsuarioEmpresaComponent implements OnInit {
 
-  public usuario: Usuario;
+  public usuario: Usuario
+  public empresa: Empresa
 
   constructor(
     private empSrv: EmpresasService,
@@ -20,7 +22,16 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.loadUser();
+    this.loadUser()
+    this.loadEmpresa()
+  }
+
+  loadEmpresa() {
+    this.empSrv.getDataEmpresa().subscribe(
+      data => {
+        this.empresa = data.datos
+      }
+    )
   }
 
   loadUser() {
@@ -62,6 +73,10 @@ export class GestionUsuarioEmpresaComponent implements OnInit {
 
   reloadEvent(evt) {
     this.loadUser();
+  }
+
+  show( elm ) {
+    elm.style.classList.add('show')
   }
 
 }

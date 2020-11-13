@@ -1,30 +1,18 @@
-#gestion-sesiones form
-{
-  display: flex;
-  flex-flow: row wrap;
-  width: 80%
-}
 
-#gestion-sesiones h4,
-#gestion-sesiones button
-{
-  flex: 2 0 100%;
-}
-
-#gestion-sesiones label,
-#gestion-sesiones input,
-#gestion-sesiones select
+#form-sesion label,
+#form-sesion input,
+#form-sesion select
 {
   flex: 1 1 49%;
 }
 
 
-#gestion-sesiones .user_name
+#form-sesion .user_name
 {
   flex: 1 1 32%;
 }
 
-#gestion-sesiones .operario
+#form-sesion .operario
 {
   flex: 1 1 20%;
 }

@@ -14,21 +14,21 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class GestionSesionesComponent implements OnInit {
 
-  @Input() user: Usuario;
+  @Input() empresa: Empresa
+  @Input() usuario: Usuario
   @Output() sendReload: EventEmitter<string>;
 
-  public empresa: Empresa;
+  // public empresa: Empresa;
   public sessionForm: FormGroup;
 
   constructor(
     private empSrv: EmpresasService,
     private userSrv: UsersService,
     private formBuilder: FormBuilder,
-    private router: Router) {
-      this.sendReload = new EventEmitter<string>();
-  }
+    private router: Router)
+  {
+    this.sendReload = new EventEmitter<string>();
 
-  ngOnInit(): void {
     this.sessionForm = this.formBuilder.group({
       usuario: ['', [Validators.required]],
       solario: ['', [Validators.required]],
@@ -36,22 +36,29 @@ export class GestionSesionesComponent implements OnInit {
       operario: ['', [Validators.required]],
       pin: ['', [Validators.required]],
     });
-
-    this.empSrv.getDataEmpresa().subscribe(
-      res => {
-        this.empresa = res.datos;
-        //console.log("Empresa cargada:" + JSON.stringify(this.empresa))
-      }
-    );
   }
 
+  ngOnInit(): void {/*
+  this.empSrv.getDataEmpresa().subscribe(
+    res => {
+      this.empresa = res.datos;
+      //console.log("Empresa cargada:" + JSON.stringify(this.empresa))
+    }
+    );*/
+  }
+/*
+  ngOnChanges() {
+    console.log("Usuario:", this.usuario)
+    console.log("Empresa:", this.empresa)
+  }
+*/
 
   selectUser() {
     const event = this.userSrv.selectUser().subscribe(
       evtUser => {
         if (evtUser != undefined) {
           //console.log("UPDATE");
-          this.user = evtUser;
+          this.usuario = evtUser;
         }
         event.unsubscribe();
       }
@@ -71,7 +78,7 @@ export class GestionSesionesComponent implements OnInit {
       bono: undefined
     }
     this.sessionForm.controls["pin"].setValue('');
-    const idusuario = this.user?._id;
+    const idusuario = this.usuario?._id;
 
     this.empSrv.registerSesion(idusuario, sesion).subscribe(
       res => {
