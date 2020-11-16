@@ -6,14 +6,21 @@
 
   <div>
     <!-- <app-gestion-sesiones [usuario]="this.usuario" [empresa]="this.empresa"></app-gestion-sesiones> -->
-    <app-lista-sesiones *ngIf="this.usuario" [usuario]="this.usuario"></app-lista-sesiones>
-    <app-form-sesion [empresa]="this.empresa" [usuario]="this.usuario"></app-form-sesion>
+    <div id="list_sesiones">
+      <app-lista-sesiones *ngIf="this.usuario" [usuario]="this.usuario"></app-lista-sesiones>
+    </div>
+    <div id="nueva_sesion">
+      <app-form-sesion [empresa]="this.empresa" [usuario]="this.usuario"></app-form-sesion>
+    </div>
   </div>
 
   <div>
-    <app-lista-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-lista-bonos>
-
-    <app-form-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-form-bonos>
+    <div>
+      <app-lista-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-lista-bonos>
+    </div>
+    <div>
+      <app-form-bonos [user]="this.usuario" (sendReload)="reloadEvent($event)"></app-form-bonos>
+    </div>
   </div>
 
   <div>
@@ -23,14 +30,14 @@
     </app-form-usuario>
   </div>
 
-  <div>
+  <div class="registered_date">
     <label>Fecha de Registro</label>
     <span *ngIf="this.usuario!=undefined">{{this.usuario.fechaRegistro | date: 'short'}}</span>
   </div>
 
-  <div>
+  <div class="delete">
     <h3>Eliminar usuario</h3>
-    <button (click)="eliminarUsuario()">Eliminar Usuario</button>
+    <button (click)="eliminarUsuario()" class="btn btn-danger">Eliminar Usuario</button>
   </div>
 
 </div>

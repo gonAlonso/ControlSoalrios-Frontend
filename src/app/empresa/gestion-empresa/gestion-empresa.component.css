@@ -1,22 +1,31 @@
-#gestion_empresa.loginerror {
-  margin-top: 4em;
+#gestion_empresa {
+  margin-top: 5em;
 }
-#gestion_empresa.loginerror {
+#gestion_empresa.loginerror h4 {
   color:  #F55; 
   text-align: center;
+  display: inline-block;
+  width: 100%;
 }
  
-#gestion_empresa.loginok {
+#gestion_empresa {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  margin: 0 1em;
- }
- 
+}
+@media (min-width: 550px) {
+  #gestion_empresa {
+    margin: 5em 1em;
+  }
+}
+
 #empresa_header {
   flex: 4 0 100%;
+  padding-bottom: 2em;
+  font-family: 'Rajdhani', sans-serif;
+
 }
  
 #empresa_navigation_bar {
@@ -24,6 +33,7 @@
   position: fixed;
   width: 100%;
   z-index: 1;
+  top: 0
 }
 
 #main_content_empresa {
@@ -32,14 +42,8 @@
 }
  
 #reload_button {
-position: relative;
-  top: 2em;
-  padding: 17px;
-  background-color: aliceblue;
-  text-decoration: none;
-  border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
+  display: block;
+  width: 100%;
 }
  
  
@@ -54,8 +58,15 @@ div#gestion_empresa li a {
 
 
 @media (max-width: 991px) {
+  #main_content_empresa {
+    flex: 3 1 100%;
+    margin: 0em 0.4em;
+  }
   #empresa_navigation_bar .navbar-nav.mr-auto a {
     color: #b0b0b0;
+  }
+  #empresa_navigation_bar .navbar-nav.mr-auto li {
+    margin-bottom: 1em;
   }
 }
 

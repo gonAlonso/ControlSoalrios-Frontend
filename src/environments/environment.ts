@@ -5,7 +5,7 @@
 export const environment = {
   title: "iSolaris",
   production: false,
-  url: 'http://localhost:5300/',
+  url: 'http://192.168.10.41:5300/',
 };
 
 /*

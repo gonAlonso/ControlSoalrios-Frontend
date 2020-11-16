@@ -1,34 +1,21 @@
-/*
-#form-add-bono
-{
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
-  margin-right: 20%;
-}
-*/
-#form-add-bono *
-{
-  flex: 1 1 49%;
+#form-add-bono form {
+  display: grid;
+  column-gap: 1em;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-#form-add-bono h4
-{
-  flex: 2 0 100% !important;
-  text-align: center;
-}
+#form-add-bono h4 { grid-row: 1; grid-column: 1 / 5; }
+#form-add-bono label.user_name { grid-row: 2; grid-column: 1; }
+#form-add-bono span.user_name { grid-row: 2; grid-column: 2 ; }
+#form-add-bono button.user_name { grid-row: 2; grid-column: 3 / 5; }
+#form-add-bono button.save_button {  grid-column:  3 / 5; }
 
-#form-add-bono .user_name
-{
-  flex: 1 1 32%;
-}
 
-/*
-#form-add-bono .save_button
-{
-  flex: 2 0 100% !important;
-  text-align: center;
+@media (max-width: 550px) {
+  #form-add-bono form { grid-template-columns: repeat(2, 1fr); }
+  #form-add-bono h4 { grid-row: 1; grid-column: 1 / 3; }
+  #form-add-bono label.user_name { grid-row: 2; grid-column: 1; }
+  #form-add-bono span.user_name { grid-row: 2; grid-column: 2 ; }
+  #form-add-bono button.user_name { grid-row: 3; grid-column: 1 / 3; }
+  #form-add-bono button.save_button {  grid-column: 1 / 3; }
 }
-*/
-

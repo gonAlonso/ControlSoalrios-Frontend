@@ -9,17 +9,6 @@
 
   <div class="collapse navbar-collapse" [class.show]="this.showMenu">
     <ul class="navbar-nav mr-auto">
-      <!--  
-      <li class="nav-item" *ngIf="this.authService.getUser()==undefined">
-        <a class="nav-link" [routerLink]="['/admin-login']" routerLinkActive="router-link-active" >Admin login</a>
-      </li>
-      <li class="nav-item" *ngIf="this.authService.getUser()==undefined">
-        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
-      </li>
-      <li class="nav-item" *ngIf="this.authService.getUser()==undefined">
-        <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
-      </li>
-      -->
       <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-sesion']}}]">Nueva sesion</a></li>
       <li><a href="#" [routerLink]="[{outlets: {secondary: ['add-usuario']}}]">Añadir usuario</a></li>
       <li><a href="#" [routerLink]="[{outlets: {secondary: ['usuarios']}}]">Gestion usuarios</a></li>
@@ -34,8 +23,8 @@
 </nav>
 
 <div id="gestion_empresa" class="loginerror" *ngIf="this.empresa == undefined; else empresa_loaded">
-  <h4>Error al cargar los datos de la empresa <span>{{this.error}}</span></h4>
-  <a id="reload_button" href="/#login">LogIn again</a>
+  <h4>Error al cargar los datos de la empresa: <span>{{this.error}}</span></h4>
+  <a id="reload_button" class="btn btn-warning" href="/#login">LogIn again</a>
   <script>
     this.authService.logout();
   </script>
@@ -44,7 +33,7 @@
 
 <ng-template #empresa_loaded>
   <div id="gestion_empresa" class="loginok">
-    <h4 id="empresa_header">Panel de Empresa <span class="nombre_empresa">{{this.empresa.nombre}}</span></h4>
+    <h3 id="empresa_header">Panel de Empresa <span class="nombre_empresa">{{this.empresa.nombre}}</span></h3>
 
     <div id="main_content_empresa">
       <router-outlet name="secondary"></router-outlet>

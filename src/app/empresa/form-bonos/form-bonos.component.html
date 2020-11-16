@@ -1,11 +1,11 @@
-<div>
-  <form id="form-add-bono" [formGroup]="this.bonoForm">
+<div id="form-add-bono">
+  <form [formGroup]="this.bonoForm">
     <h4>Crear nuevo bono de sesiones</h4>
 
     <label class="user_name">Usuario</label>
     <span class="user_name">{{ this.user?.nombre||"No seleccionado"}}</span>
     <input *ngIf="this.user" type="hidden" [(ngModel)]="this.user._id" class="form-control" [formControlName]="'idusuario'"/>
-    <button class="user_name" [disabled]="this.user" class="btn btn-success" (click)="selectUser()">Selecciona Usuario</button>
+    <button class="user_name btn btn-success" [disabled]="this.user" (click)="selectUser()">Selecciona Usuario</button>
 
     <label class="quantity" for="value">Cantidad</label>
     <input class="quantity" type="spin" placeholder="Cantidad" name="value" class="form-control" [formControlName]="'cantidad'"/>

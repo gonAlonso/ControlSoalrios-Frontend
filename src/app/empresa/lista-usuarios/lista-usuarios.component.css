@@ -3,7 +3,7 @@
   position: fixed;
   width: 33%;
   right: -33%;
-  top: 5em;
+  top: 4em;
   background-color: white;
   opacity: 1;
   height: calc(100% - 5em);
@@ -32,4 +32,11 @@ ul li { width: 100%; }
 ul li a {
   display: inline-block;
   width: 100%;
+}
+
+@media (max-width: 500px) {
+  #listaUsuariosComponent {
+    width: 100%;
+    right: -100%;
+  }
 }

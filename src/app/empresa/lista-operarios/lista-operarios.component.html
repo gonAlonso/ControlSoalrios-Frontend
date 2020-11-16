@@ -1,7 +1,7 @@
 <h4 *ngIf="this.operarios==undefined; else operariosOK">Error al cargar la lista de operarios</h4>
 
 <ng-template #operariosOK>
-  <h3 class="componen_header">Lista operarios</h3>
+  <h4 class="componen_header">Lista operarios</h4>
   <ul class="list-group">
     <li *ngFor="let item of this.operarios" class="list-group-item">
         <a href="#" (click)="select($event,item)">{{item.nombre}}</a>

@@ -1,1 +1,14 @@
-div:not(#gestion-usuario-empresa) { margin-top: 4em;}
+#gestion-usuario-empresa {  margin: 0 0 2em 0;}
+#gestion-usuario-empresa > div { padding: 1em 0.4em;  margin-top: 4em;}
+h2 { font-family: 'Raleway', sans-serif; }
+#gestion-usuario-empresa > div:nth-child(2n + 1) { background-color: #8080801c;}
+#gestion-usuario-empresa > div.header {
+    background-color: transparent;
+    margin-top: 0;
+    border-bottom: 1px solid #3333;
+}
+#gestion-usuario-empresa > div.delete { background-color: #f99a;}
+#gestion-usuario-empresa > div.registered_date,
+#gestion-usuario-empresa > div.delete { border-radius: 4px;}
+
+#nueva_sesion { margin-top: 2em;}
