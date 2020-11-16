@@ -3,12 +3,12 @@
   position: fixed;
   width: 33%;
   right: -33%;
-  top: 0px;
+  top: 5em;
   background-color: white;
   opacity: 1;
-  height: 100%;
-  border-left: 1px solid #000;
-  padding-left: 8px;
+  height: calc(100% - 5em);
+  border-left: 1px solid #0003;
+  padding: 0 8px;
   transition: right 00.4s ease-in-out;
 }
 
@@ -21,6 +21,15 @@
 #hide_button {
   position: absolute;
   bottom: 0;
-  margin: 10px;
   padding: 20px;
+  width: calc( 100% - 1em);
+}
+
+
+
+ul li { width: 100%; }
+
+ul li a {
+  display: inline-block;
+  width: 100%;
 }
