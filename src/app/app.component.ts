@@ -3,6 +3,8 @@ import { AuthService } from './services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+declare var $: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,6 +39,10 @@ export class AppComponent {
         else if ( data == "logout" ) this.logout( null )
       }
     )
+
+    $('#loginForm').on('hidden.bs.modal', (e) => {
+      window.location.hash = ""
+    })
   }
 
   logout(e) {
@@ -49,6 +55,7 @@ export class AppComponent {
   showLogIn(evt) {
     evt?.preventDefault()
     this.showLogin = true;
+    $('#loginForm').modal('show')
   }
 
   hideLogIn(evt) {
@@ -56,6 +63,7 @@ export class AppComponent {
     this.showLogin = false;
     window.location.hash = ""
     this.form.reset()
+    $('#loginForm').modal('hide')
   }
   
   toggleLogin() {
