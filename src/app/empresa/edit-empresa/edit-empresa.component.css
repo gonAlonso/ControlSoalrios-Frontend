@@ -19,3 +19,13 @@
 }
 
 
+.edit_empresa_item {
+  margin-top: 5em;
+}
+
+.delete_empresa {
+  background-color: #faa5;
+  padding: 2em 2em 1em;
+  margin-bottom: 3em;
+  border-radius: 4px;
+}

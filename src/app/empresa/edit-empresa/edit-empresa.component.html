@@ -1,14 +1,22 @@
 <div id="edit-empresa">
   <h3>Modificar datos de empresa</h3>
 
-  <app-gestion-operarios [empresa]="this.empresa" ></app-gestion-operarios>
+  <div class="edit_empresa_item">
+    <app-gestion-operarios [empresa]="this.empresa" ></app-gestion-operarios>
+  </div>
+  
+  <div class="edit_empresa_item">
+    <app-gestion-solarios [empresa]="this.empresa"></app-gestion-solarios>
+  </div>
+  
+  <div class="edit_empresa_item">
+    <app-form-datos-empresa [empresa]="this.empresa"></app-form-datos-empresa>
+  </div>
 
-  <app-gestion-solarios [empresa]="this.empresa"></app-gestion-solarios>
-
-  <app-form-datos-empresa [empresa]="this.empresa"></app-form-datos-empresa>
-
-  <div>
-    <p>Atención. Esta función es irreversible</p>
-    <button (click)="eliminaEmpresa()" class="btn btn-danger">Eliminar Empresa</button>
+  <div class="edit_empresa_item delete_empresa">
+    <div>
+      <p>Atención. Esta función es irreversible</p>
+      <button (click)="eliminaEmpresa()" class="btn btn-danger">Eliminar Empresa</button>
+    </div>
   </div>
 </div>
