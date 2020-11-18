@@ -1,5 +1,21 @@
-#register_empresa {
+nav a {
+  color: #fff;
+  margin: 1em 1em;
+  padding: 0em 1em;
+  flex: 1 1 30%;
+}
 
+nav {
+  min-height: 3em;
+  background-color: #222;
+  padding-top: 1em;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+
+#register_empresa {
+  margin: 2em 1em;
 }
 
 #register_empresa label, #register_empresa input {

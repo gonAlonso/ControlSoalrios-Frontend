@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Empresa } from '../models/empresa';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../services/auth.service';
 import { EmpresasService } from '../services/empresas.service';
 
@@ -14,11 +14,14 @@ export class RegisterEmpresaComponent implements OnInit {
 
   public form: FormGroup;
   public showOkMsg: boolean = false;
+  public title: string
 
-  constructor(private empresasSrv: EmpresasService,
-              private router: Router,
-              private authSerrvice: AuthService,
-              private formBuilder: FormBuilder) { }
+  constructor(
+    private empresasSrv: EmpresasService,
+    private formBuilder: FormBuilder)
+  {
+    this.title = environment.title
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -59,3 +62,4 @@ export class RegisterEmpresaComponent implements OnInit {
 
   }
 }
+

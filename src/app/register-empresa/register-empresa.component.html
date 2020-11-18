@@ -1,40 +1,46 @@
+<nav>
+  <a href="" [routerLink]="['.']">{{this.title}}</a>
+  <a href="" [routerLink]="['.']" fragment='login'>Login</a>
+</nav>
+
 <div id="register_empresa">
+
 
   <h3>Sign in your company</h3>
   <form [formGroup]="this.form">
-  <label for="co_name">Nombre de empresa</label>
-  <input type="text" name="coname" placeholder="Nombre Empresa" formControlName="coname"/>
+    <label for="co_name">Nombre de empresa</label>
+    <input class="form-control" type="text" name="coname" placeholder="Nombre Empresa" formControlName="coname"/>
 
-  <label>Nombre fiscal</label>
-  <input type="text" name="fiscalname" placeholder="Nombre fiscal" formControlName="fiscalname"/>
+    <label>Nombre fiscal</label>
+    <input class="form-control" type="text" name="fiscalname" placeholder="Nombre fiscal" formControlName="fiscalname"/>
 
-  <label>CIF</label>
-  <input type="text" name="cif" placeholder="CIF" formControlName="cif"/>
+    <label>CIF</label>
+    <input class="form-control" type="text" name="cif" placeholder="CIF" formControlName="cif"/>
 
-  <label>Direccion fiscal</label>
-  <input type="text" name="postaddress" placeholder="Direccion fiscal" formControlName="postaddress"/>
+    <label>Direccion fiscal</label>
+    <input class="form-control" type="text" name="postaddress" placeholder="Direccion fiscal" formControlName="postaddress"/>
 
-  <label>Tlf</label>
-  <input type="text" name="tlf" placeholder="Telefono" formControlName="tlf"/>
+    <label>Tlf</label>
+    <input class="form-control" type="text" name="tlf" placeholder="Telefono" formControlName="tlf"/>
 
-  <label>Tipo de bono</label>
-  <select name="tipobono" formControlName="bono">
-    <option>MINUTOS</option>
-    <option>SESIONES</option>
-  </select>
+    <label>Tipo de bono</label>
+    <select class="form-control" name="tipobono" formControlName="bono">
+      <option>MINUTOS</option>
+      <option>SESIONES</option>
+    </select>
 
-  <label for="email">e-mail</label>
-  <input type="email" name="email" placeholder="Email" formControlName="email"/>
+    <label for="email">e-mail</label>
+    <input class="form-control" type="email" name="email" placeholder="Email" formControlName="email"/>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" placeholder="Password" formControlName="password"/>
+    <label for="password">Password</label>
+    <input class="form-control" type="password" name="password" placeholder="Password" formControlName="password"/>
 
-  <button type="submit" [disabled]="form.invalid" (click)="onSubmit($event)" >Enviar</button>
-</form>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="onSubmit($event)" >Enviar registro</button>
+  </form>
 
-<div id="register_empresa_ok" [class.show]="this.showOkMsg">
-  <h4>Registro realizado!</h4>
-  <p>Ahora debes revisar tu buzon de email para completar el registro</p>
-</div>
+  <div id="register_empresa_ok" [class.show]="this.showOkMsg">
+    <h4>Registro realizado!</h4>
+    <p>Ahora debes revisar tu buzon de email para completar el registro</p>
+  </div>
 
 </div>
