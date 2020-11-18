@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam&display=swap');
+
+nav a {
+    color: #fff;
+    margin: 1em 1em;
+    padding: 0em 1em;
+    flex: 1 1 30%;
+}
+nav {
+    min-height: 3em;
+    background-color: #414347;
+    padding-top: 1em;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.jumbotron {
+    background-color: unset;
+    color: #fff;
+    position: relative;
+}
+
+.jumbotron h1 {
+    font-family: 'Poiret One', cursive;
+
+}
+
+#homepage_content p {
+    font-family: 'Be Vietnam', 'Thasadith', sans-serif
+}
+
+.jumbotron::before {
+    content: '';
+    display: block;
+    position: absolute;
+    filter: brightness(0.7) blur(2px);
+    background-image: url(/assets/img/solarium.jpg);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+img.card-img-top {
+    height: 50%;
+    object-fit: cover;
+}
+
+footer {
+    min-height: 5em;
+    background-color: #414347;
+    color: #fff;
+    margin-top: 3em;
+}

@@ -1,7 +1,51 @@
-<p>homepage works!</p>
+<nav>
+    <a href="" [routerLink]="['.']">{{this.title}}</a>
+    <a href="" [routerLink]="['.']" fragment='login'>Login</a>
+    <a href="" [routerLink]="['register']">Registrar</a>
+</nav>
 
-<p>Just a mockup page</p>
-<ul>
-    <li>Login: <a [routerLink]="['.']" fragment='login'>Go Login</a></li>
-    <li>Login: <a [routerLink]="['register']">Register empresa</a></li>
-</ul>
+<div id="homepage_content">
+    <div class="jumbotron">
+        <h1 class="display-4">{{this.title}}</h1>
+        <p class="lead">Facilidad y seguridad</p>
+        <hr class="my-4">
+        <p>Gestion de salas de bronceado.</p>
+        <a class="btn btn-primary btn-lg" href="" [routerLink]="['register']" role="button">Registrate</a>
+    </div>
+
+    <div>
+        <p>Sistema online, sin necesidad de instalacion. Copias de seguridad automaticas. Maxima seguridad</p>
+    </div>
+
+    <div class="card-group">
+        <div class="card">
+          <img src="/assets/img/model-man.jpg" class="card-img-top" alt="Background image">
+          <div class="card-body">
+            <h5 class="card-title">Gestiona</h5>
+            <p class="card-text">Con <span class="title">{{this.title}}</span> podras gestionar tus solarios de forma facil y comoda, cumpliendo los requisitos de la <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-19574" target="new">normativa vigente</a></p>
+            <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+          </div>
+        </div>
+        <div class="card">
+          <img src="/assets/img/model-woman.jpg" class="card-img-top" alt="Backgroound image">
+          <div class="card-body">
+            <h5 class="card-title">Facilita</h5>
+            <p class="card-text">Manten el registro de sesiones de tus usuarios y valores de radiacion. Facil, comodo y seguro. Con unos pocos clicks podras registrar sesiones y revisar niveles de exposicion</p>
+            <p class="card-text">Crea ya tu cuenta profesional, <a href="" [routerLink]="['register']">registrate aqui</a></p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/assets/img/solarium_blue.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Gestion de documentos de informacion al usuario y consentimiento, conforme la normativa actual</p>
+            <p class="card-text">Evita el uso de documentos en papel, digitaliza y facilita tu gestion</p>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+          <p><span>{{this.title}}</span> Derechos reservados</p>
+      </footer>
+</div>
+
