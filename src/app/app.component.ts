@@ -70,7 +70,9 @@ export class AppComponent {
     this.showLogin = !this.showLogin;
   }
 
-  sendLogin(){
+  sendLogin(evt){
+    evt.preventDefault()
+    
     this.authService.login( this.form.get('email').value, this.form.get('password').value ).subscribe(
       result => {
         let dir;
