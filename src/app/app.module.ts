@@ -41,6 +41,7 @@ import { FormSolarioComponent } from './empresa/form-solario/form-solario.compon
 import { ListaSolariosComponent } from './empresa/lista-solarios/lista-solarios.component';
 import { ListaOperariosComponent } from './empresa/lista-operarios/lista-operarios.component';
 import { FormOperarioComponent } from './empresa/form-operario/form-operario.component';
+import { HomepageEmpresaComponent } from './empresa/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { FormOperarioComponent } from './empresa/form-operario/form-operario.com
     FormSolarioComponent,
     ListaSolariosComponent,
     ListaOperariosComponent,
-    FormOperarioComponent
+    FormOperarioComponent,
+    HomepageEmpresaComponent
   ],
   imports: [
     BrowserModule,

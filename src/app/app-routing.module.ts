@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { GestionEmpresaComponent } from './empresa/gestion-empresa/gestion-empresa.component';
-//import { LoginComponent } from './login/login.component';
 import { EditEmpresaComponent } from './empresa/edit-empresa/edit-empresa.component';
 import { GestionUsuariosComponent } from './empresa/gestion-usuarios/gestion-usuarios.component';
 import { GestionUsuarioEmpresaComponent } from './empresa/gestion-usuario-empresa/gestion-usuario-empresa.component';
@@ -15,6 +14,7 @@ import { FormBonosComponent } from './empresa/form-bonos/form-bonos.component';
 import { GestionSesionesComponent } from './empresa/gestion-sesiones/gestion-sesiones.component';
 import { VerifyComponent } from './verify/verify.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageEmpresaComponent } from './empresa/homepage/homepage.component';
 
 
 const routes: Routes = [
@@ -31,6 +31,7 @@ const routes: Routes = [
     {path: 'add-bono', component: FormBonosComponent, outlet: 'secondary'},
     {path: 'add-sesion', component: GestionSesionesComponent, outlet: 'secondary'},
     {path: 'historico', component: HistoricoComponent, outlet: 'secondary'},
+    {path: '', component: HomepageEmpresaComponent, outlet: 'secondary'},
   ]},
   {path: '', component: HomepageComponent},
   {path: '**', component: PageNotFoundComponent},
