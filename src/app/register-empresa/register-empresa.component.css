@@ -43,8 +43,10 @@ div#register_empresa_ok:before {
   height: 100%;
   position: fixed;
   z-index: -1;
-  background-image: url('/assets/email.png');
-  background-position: 50% bottom;
+  background-image: url(/assets/email.png);
+  background-position: 0% bottom;
+  background-size: 500px;
+  background-repeat-y: no-repeat;
 }
 
 #register_empresa_ok * {
