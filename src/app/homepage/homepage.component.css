@@ -8,6 +8,11 @@ nav a {
     padding: 0em 1em;
     flex: 1 1 30%;
 }
+nav a.title {
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+    margin: 0 1em;
+}
 nav {
     min-height: 3em;
     background-color: #414347;
@@ -24,7 +29,6 @@ nav {
 
 .jumbotron h1 {
     font-family: 'Poiret One', cursive;
-
 }
 
 #homepage_content p {

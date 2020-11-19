@@ -1,6 +1,20 @@
+
 #gestion_empresa {
   margin-top: 5em;
 }
+
+
+
+#empresa_navigation_bar a.navbar-brand {
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+    margin: 0 1em;
+}
+
+  #empresa_header a {
+  color: #111;
+}
+
 #gestion_empresa.loginerror h4 {
   color:  #F55; 
   text-align: center;
@@ -77,7 +91,7 @@ div#gestion_empresa li a {
   #empresa_navigation_bar li {
     margin-bottom: 1em;
   }
-  #gestion_empresa.loginok {
+  #gestion_empresa  {
     float: right;
     width: calc(100% - 20em);
   }
