@@ -1,18 +1,16 @@
 FROM node:12.0
 
-RUN npm install -g @angular/cli nodemon 
 
+#RUN mkdir -p /opt/ng
 WORKDIR /opt/ng
-
 #COPY package*.json /opt/ng
-
-RUN npm install
-
-#ENV PATH="./node_modules/.bin:$PATH" 
-#COPY . ./
-
+#COPY package*.json ./
 EXPOSE 4200
 
-CMD echo "FRONTEND up" && sleep 5 && npm start
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
-#ENTRYPOINT ["npm", "start"]
+#COPY ./angular /home/node/app
+#RUN npm install
+#RUN npm install -g @angular/cli nodemon express
+#RUN npm install --save-dev @angular-devkit/build-angular
+
+CMD echo "FRONTEND up" && sleep 5 && echo "NPM INSTALL" && npm i --silent && echo "NPM START" && npm start
+#CMD [ "tail", "-f", "/dev/null" ]
